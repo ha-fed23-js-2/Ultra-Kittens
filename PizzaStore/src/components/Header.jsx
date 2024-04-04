@@ -1,16 +1,25 @@
-import React from 'react';
-import '../styles/Header.css';
+import { Link, NavLink } from "react-router-dom";
+
+import "../styles/Header.css";
 
 const Header = () => {
   return (
-    <header>
+    <nav>
       <h1>PizzakällarN</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Meny</a></li>
-        </ul>
-      </nav>
-    </header>
+      <ul>
+        <li>
+          <NavLink to="/">Hem</NavLink>
+          <NavLink to="/menu">Meny</NavLink>
+        </li>
+      </ul>
+    </nav>
+    // <header>
+    //   <nav>
+    //     <ul>
+    //       <li><a href="#">Meny</a></li>
+    //     </ul>
+    //   </nav>
+    // </header>
   );
 };
 

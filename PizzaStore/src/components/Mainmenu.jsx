@@ -1,5 +1,4 @@
-import React from 'react';
-import '../styles/Mainmenu.css';
+import "../styles/MainMenu.css";
 
 const MenuPage = () => {
   return (
