@@ -1,4 +1,4 @@
-import "../styles/MainMenu.css";
+import "../styles/Mainmenu.css";
 
 const MenuPage = () => {
   return (

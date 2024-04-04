@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Uppdatera importen för Routes
 import HomePage from "./components/Homepage.jsx";
-import MenuPage from "./components/MainMenu.jsx";
+import MenuPage from "./components/Mainmenu.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 
