@@ -1,6 +1,7 @@
 import React from 'react';
+import '../styles/Header.css';
 
-const Menu = () => {
+const Header = () => {
   return (
     <header>
       <h1>PizzakällarN</h1>
@@ -13,4 +14,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default Header;
