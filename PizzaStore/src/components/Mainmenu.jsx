@@ -1,6 +1,6 @@
 import "../styles/MainMenu.css";
 
-const MenuPage = () => {
+const MainMenu = () => {
   return (
     <div>
       <h2>Meny</h2>
@@ -13,4 +13,4 @@ const MenuPage = () => {
   );
 };
 
-export default MenuPage;
+export default MainMenu;
