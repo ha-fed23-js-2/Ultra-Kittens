@@ -1,36 +1,30 @@
 import "../styles/Mainmenu.css";
+import AddToCart from "./AddToCart";
 
 const Mainmenu = () => {
-	return (
-		<div>
-			<div className="menuItem">
-
-				<div className="pizzaInfoContainer">
-
-					<img className="pizzaImage" src="src/assets/logo.png" alt="imageofpizza" />
-
-					<h3>Pizzaname</h3>
-					<p>Ingridients</p>
-
-					<div className="quantityContainer">
-						<button className="quantityButton">-</button>
-						<p>Quantity</p>
-						<button className="quantityButton">+</button>
-					</div>
-
-
-				</div>
-
-				<p>Price</p>
-			</div>
-
-			<ul>
-				<li>Pizza 1</li>
-				<li>Pizza 2</li>
-				<li>Pizza 3</li>
-			</ul>
-		</div>
-	);
+  return (
+    <div className="Container">
+      <div className="menuItemContainer">
+        <div className="menuItem">
+          <img
+            className="pizzaImage"
+            src="src/assets/logo.png"
+            alt="imageofpizza"
+          />
+          <div className="menuItemInfo">
+            <div>
+              <h3>Pizzaname</h3>
+              <p>
+                Ingredients: Mozarella, Tomatoes, Olives, Bell peppers and Basil
+              </p>
+            </div>
+            <AddToCart />
+          </div>
+        </div>
+        <p>Price: 129 kr</p>
+      </div>
+    </div>
+  );
 };
 
 export default Mainmenu;

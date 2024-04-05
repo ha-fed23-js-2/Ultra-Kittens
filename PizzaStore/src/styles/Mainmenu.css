@@ -1,37 +1,52 @@
-ul li {
-  /* padding: 1em; */
-  /* text-decoration: none; */
-  list-style-type: none;
+.Container {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
-
-.menuItem {
-	border: 1px solid black;
-	display: flex;
-	flex-direction: row;
-	padding: 1em;
-	justify-content: space-between;
-
-	
+.menuItemContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+  margin: 2em 3em;
+  border: 1px solid black;
+  border-radius: 36px;
+  background: rgba(255, 255, 255, 0.51);
+  max-width: 1017px;
 }
-
-.quantityButton {
-	
-	background-color: #FFF6E9;
-	border: 1px solid #8F8F8F;
-	cursor: pointer;
+.menuItemContainer .menuItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
-.quantityContainer {
-	display: flex
-}
-
-.pizzaInfoContainer {
-	display: flex;
-	flex-direction: row;
-	
-}
-
 .pizzaImage {
-	height: 8em;
-	width: auto;
+  height: 8em;
+  width: auto;
+}
+.menuItemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  margin: 0 2em;
+}
+.quantityContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90px;
+  border: 2px solid black;
+  border-radius: 8px;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.51);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  font-size: 1.2em;
+}
+button {
+  text-align: center;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.51);
+  font-size: 1.2em;
 }
