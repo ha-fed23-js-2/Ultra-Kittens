@@ -1,17 +1,9 @@
-nav {
-  /* background-color: #333; */
-  color: #3a3939;
-  padding: 20px;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li a {
-  padding: 1em;
-  color: #201e1e;
-  text-decoration: none;
+button {
+background-color: #FFF6E9;
+border: 1px solid #8F8F8F;
+padding: 5px;
+border-radius: 30px;
+width: 200px;
+font-family: Poppins;
+font-size: 41px;
 }

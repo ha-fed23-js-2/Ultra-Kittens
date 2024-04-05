@@ -3,11 +3,15 @@ import "../styles/Navbar.css";
 const Navbar = () => {
   return (
     <nav>
-      <ul>
+      {/* <ul>
         <li>
           <NavLink to="/menu">Meny</NavLink>
         </li>
-      </ul>
+      </ul> */}
+      <div>
+        
+        <NavLink to="/menu"><button>Menu</button></NavLink>
+      </div>
     </nav>
   );
 };
