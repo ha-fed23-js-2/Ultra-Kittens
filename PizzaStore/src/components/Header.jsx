@@ -1,25 +1,20 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.png";
 import "../styles/Header.css";
+import { RiShoppingBasketLine } from "react-icons/ri";
 
 const Header = () => {
   return (
-    <div>
-      <header>
+    <header>
+      <div className="space"></div>
+      <div className="logo-container">
         <NavLink to="/">
           <img className="logo" src={Logo} alt="logo" />
         </NavLink>
         <h1>PizzakällarN</h1>
-      </header>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Hem</NavLink>
-            <NavLink to="/menu">Meny</NavLink>
-          </li>
-        </ul>
-      </nav>
-    </div>
+      </div>
+      <RiShoppingBasketLine className="shopping-Basket-icon" />
+    </header>
   );
 };
 
