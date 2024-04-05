@@ -3,3 +3,35 @@ ul li {
   /* text-decoration: none; */
   list-style-type: none;
 }
+
+.menuItem {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: row;
+	padding: 1em;
+	justify-content: space-between;
+
+	
+}
+
+.quantityButton {
+	
+	background-color: #FFF6E9;
+	border: 1px solid #8F8F8F;
+	cursor: pointer;
+}
+
+.quantityContainer {
+	display: flex
+}
+
+.pizzaInfoContainer {
+	display: flex;
+	flex-direction: row;
+	
+}
+
+.pizzaImage {
+	height: 8em;
+	width: auto;
+}

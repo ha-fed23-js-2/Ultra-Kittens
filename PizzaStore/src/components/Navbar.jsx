@@ -10,7 +10,7 @@ const Navbar = () => {
       </ul> */}
       <div>
         
-        <NavLink to="/menu"><button>Menu</button></NavLink>
+        <NavLink to="/menu"><button className="menuButton">Menu</button></NavLink>
       </div>
     </nav>
   );
