@@ -4,7 +4,24 @@ import '../styles/Footer.css';
 const Footer = () => {
   return (
     <footer>
-      <p>Admin Login</p>
+      <ul className="footer-list">
+        <li>Admin Login</li>
+         <li>123 Main Street
+          <br />
+          Anytown
+          <br/>
+          USA 12345
+         </li>
+    <li><img src="src/assets/Logo.png" alt="logo" /></li>
+    <li>Opening hours:
+      <br />
+      Mon-Fri 10:30 - 22:00
+      <br />
+      Sat 10:30 - Late
+      <br />
+      Sun Closed
+    </li>
+  </ul>
     </footer>
   );
 };
