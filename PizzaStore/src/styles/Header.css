@@ -1,4 +1,10 @@
-header {
+.mainHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+}
+.menuHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -13,7 +19,7 @@ header .logo {
   height: 7em;
 }
 header .shopping-Basket-icon {
-  font-size: 3.5em;
+  font-size: 3em;
   color: #282727;
 }
 header h1 {
@@ -34,11 +40,33 @@ header h1 {
   border-radius: 50%;
   width: 1em;
   height: 1em;
-  font-size: 1.3em;
-  padding: 5px;
+  font-size: 1em;
+  padding: 3px;
   background-color: #24ff00;
   place-content: center;
+  color: #282727;
 }
-.CountCartItemHide {
+
+.menuButton {
+  background-color: #fff6e9;
+  border: 1px solid #8f8f8f;
+  padding: 5px;
+  border-radius: 30px;
+  width: 200px;
+  font-family: Poppins;
+  font-size: 41px;
+  cursor: pointer;
+}
+header p {
+  font-family: Poppins;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.4em;
+}
+.backToMain-icon {
+  font-size: 3em;
+  color: #282727;
+}
+.hidden {
   display: none;
 }
