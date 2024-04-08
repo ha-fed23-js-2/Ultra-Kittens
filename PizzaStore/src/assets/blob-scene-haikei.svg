@@ -1,1 +1,45 @@
-<svg id="visual" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><rect x="0" y="0" width="900" height="600" fill="#e5e6dd"></rect><defs><linearGradient id="grad1_0" x1="33.3%" y1="0%" x2="100%" y2="100%"><stop offset="20%" stop-color="#fbae3c" stop-opacity="1"></stop><stop offset="80%" stop-color="#fbae3c" stop-opacity="1"></stop></linearGradient></defs><defs><linearGradient id="grad1_1" x1="33.3%" y1="0%" x2="100%" y2="100%"><stop offset="20%" stop-color="#fbae3c" stop-opacity="1"></stop><stop offset="80%" stop-color="#e5e6dd" stop-opacity="1"></stop></linearGradient></defs><defs><linearGradient id="grad2_0" x1="0%" y1="0%" x2="66.7%" y2="100%"><stop offset="20%" stop-color="#fbae3c" stop-opacity="1"></stop><stop offset="80%" stop-color="#fbae3c" stop-opacity="1"></stop></linearGradient></defs><defs><linearGradient id="grad2_1" x1="0%" y1="0%" x2="66.7%" y2="100%"><stop offset="20%" stop-color="#e5e6dd" stop-opacity="1"></stop><stop offset="80%" stop-color="#fbae3c" stop-opacity="1"></stop></linearGradient></defs><g transform="translate(900, 0)"><path d="M0 486.7C-58.8 457.4 -117.6 428.1 -163.8 395.4C-210 362.8 -243.7 326.9 -294.9 294.9C-346.1 262.9 -414.8 234.8 -449.7 186.3C-484.6 137.8 -485.7 68.9 -486.7 0L0 0Z" fill="#e4d18c"></path><path d="M0 243.4C-29.4 228.7 -58.8 214 -81.9 197.7C-105 181.4 -121.8 163.4 -147.4 147.4C-173 131.4 -207.4 117.4 -224.8 93.1C-242.3 68.9 -242.8 34.4 -243.4 0L0 0Z" fill="#fbae3c"></path></g><g transform="translate(0, 600)"><path d="M0 -486.7C67.4 -483.6 134.8 -480.4 186.3 -449.7C237.8 -419 273.4 -360.8 312.5 -312.5C351.7 -264.3 394.4 -226.1 424.1 -175.7C453.7 -125.2 470.2 -62.6 486.7 0L0 0Z" fill="#e4d18c"></path><path d="M0 -243.4C33.7 -241.8 67.4 -240.2 93.1 -224.8C118.9 -209.5 136.7 -180.4 156.3 -156.3C175.9 -132.2 197.2 -113 212 -87.8C226.8 -62.6 235.1 -31.3 243.4 0L0 0Z" fill="#fbae3c"></path></g></svg>
+<svg id="visual" viewBox="0 0 900 600" width="900" height="600"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    version="1.1">
+    <rect x="0" y="0" width="900" height="600" fill="#e5e6dd"></rect>
+    <defs>
+        <linearGradient id="grad1_0" x1="33.3%" y1="0%" x2="100%" y2="100%">
+            <stop offset="20%" stop-color="#fbae3c" stop-opacity="1"></stop>
+            <stop offset="80%" stop-color="#fbae3c" stop-opacity="1"></stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad1_1" x1="33.3%" y1="0%" x2="100%" y2="100%">
+            <stop offset="20%" stop-color="#fbae3c" stop-opacity="1"></stop>
+            <stop offset="80%" stop-color="#e5e6dd" stop-opacity="1"></stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad2_0" x1="0%" y1="0%" x2="66.7%" y2="100%">
+            <stop offset="20%" stop-color="#fbae3c" stop-opacity="1"></stop>
+            <stop offset="80%" stop-color="#fbae3c" stop-opacity="1"></stop>
+        </linearGradient>
+    </defs>
+    <defs>
+        <linearGradient id="grad2_1" x1="0%" y1="0%" x2="66.7%" y2="100%">
+            <stop offset="20%" stop-color="#e5e6dd" stop-opacity="1"></stop>
+            <stop offset="80%" stop-color="#fbae3c" stop-opacity="1"></stop>
+        </linearGradient>
+    </defs>
+    <g transform="translate(900, 0)">
+        <path
+            d="M0 486.7C-58.8 457.4 -117.6 428.1 -163.8 395.4C-210 362.8 -243.7 326.9 -294.9 294.9C-346.1 262.9 -414.8 234.8 -449.7 186.3C-484.6 137.8 -485.7 68.9 -486.7 0L0 0Z"
+            fill="#e4d18c"></path>
+        <path
+            d="M0 243.4C-29.4 228.7 -58.8 214 -81.9 197.7C-105 181.4 -121.8 163.4 -147.4 147.4C-173 131.4 -207.4 117.4 -224.8 93.1C-242.3 68.9 -242.8 34.4 -243.4 0L0 0Z"
+            fill="#fbae3c"></path>
+    </g>
+    <g transform="translate(0, 600)">
+        <path
+            d="M0 -486.7C67.4 -483.6 134.8 -480.4 186.3 -449.7C237.8 -419 273.4 -360.8 312.5 -312.5C351.7 -264.3 394.4 -226.1 424.1 -175.7C453.7 -125.2 470.2 -62.6 486.7 0L0 0Z"
+            fill="#e4d18c"></path>
+        <path
+            d="M0 -243.4C33.7 -241.8 67.4 -240.2 93.1 -224.8C118.9 -209.5 136.7 -180.4 156.3 -156.3C175.9 -132.2 197.2 -113 212 -87.8C226.8 -62.6 235.1 -31.3 243.4 0L0 0Z"
+            fill="#fbae3c"></path>
+    </g>
+</svg>
