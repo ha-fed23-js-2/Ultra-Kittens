@@ -4,14 +4,12 @@ import HomePage from "./components/Homepage.jsx";
 import Mainmenu from "./components/Mainmenu.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
-import Navbar from "./components/Navbar.jsx";
 
 const App = () => {
   return (
     <Router>
       <div className="App">
         <Header />
-        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<Mainmenu />} />

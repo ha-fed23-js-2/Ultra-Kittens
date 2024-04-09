@@ -9,8 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "joi": "^17.12.3",
     "react-hook-form": "^7.51.2",
+=======
+    "react-icons": "^5.0.1",
+>>>>>>> header
     "vite": "^5.2.8"
   }
 }
