@@ -20,12 +20,12 @@ header .logo {
 }
 header .shopping-Basket-icon {
   font-size: 3em;
-  color: #282727;
+  color: var(--text-color);
 }
 header h1 {
-  font-family: "Inspiration", cursive;
+  font-family: var(--header-text-font);
   font-size: 4em;
-  color: #d1552c;
+  color: var(--dark-orange-color);
   margin-top: -0.3em;
   text-shadow: 0px 3px 3px #212020;
 }
@@ -36,7 +36,7 @@ header h1 {
 }
 .shoppingCart .CountCartItemShow {
   margin: -0.8em;
-  border: 1px solid black;
+  border: 1px solid var(--text-color);
   border-radius: 50%;
   width: 1em;
   height: 1em;
@@ -44,29 +44,52 @@ header h1 {
   padding: 3px;
   background-color: #24ff00;
   place-content: center;
-  color: #282727;
+  color: var(--text-color);
+}
+
+svg.shopping-Basket-icon {
+  color: var(--text-color);
 }
 
 .menuButton {
-  background-color: #fff6e9;
-  border: 1px solid #8f8f8f;
-  padding: 5px;
-  border-radius: 30px;
-  width: 200px;
-  font-family: Poppins;
-  font-size: 41px;
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--shadow-color);
+  box-shadow: 0px 2px 5px var(--shadow-color);
+  border-radius: 20px;
+  width: 6em;
+  font-size: 32px;
+  margin-bottom: 1em;
   cursor: pointer;
 }
+
+.menuButton:hover {
+  box-shadow: 0px 2px 5px var(--shadow-color) inset;
+
+}
+
 header p {
-  font-family: Poppins;
+  font-family: var(--text-font);
   font-size: 2em;
-  font-weight: bold;
+  font-weight: 600;
   margin: 0.4em;
+  color: var(--text-color);
 }
 .backToMain-icon {
   font-size: 3em;
-  color: #282727;
+  color: var(--text-color);
 }
 .hidden {
   display: none;
+}
+
+@media (max-width: 450px) {
+  header .logo {
+    width: 6em;
+    height: 6em;
+  }
+
+  header h1 {
+    font-size: 3em;
+  }
 }

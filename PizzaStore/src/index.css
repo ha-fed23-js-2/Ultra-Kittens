@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Poppins:ital,wght@0,100;0,200;0,300");
+
 body {
   background-image: url(./assets/blob-scene-haikei.svg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  /* height: 100vh; */
+}
+
+:root {
+  --bg-color: #FFF6E9;
+  --mustard-color: #E4D18C;
+  --orange-color: #DD9F42;
+  --dark-orange-color: #D1552C;
+  --text-color: #333333;
+  --shadow-color: #787878;
+  --white-color: #fefefe;
+  --red-color: rgb(230, 52, 52);
+
+  --header-text-font: "Inspiration", cursive;
+  --text-font: "Poppins", sans-serif;
 }

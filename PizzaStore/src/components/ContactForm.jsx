@@ -87,15 +87,17 @@ function ContactForm() {
 
       <section className="form-item">
         <label className="form-label">Message</label>
+        <div className="input-container">
         <textarea
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           type="text"
           placeholder="Write your message here"
         />
+        </div>
       </section>
 
-      <section>
+      <section className="form-btn">
         <button
           className="submit-btn"
           disabled={!formIsValid}

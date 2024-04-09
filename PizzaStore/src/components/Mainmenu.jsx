@@ -27,8 +27,10 @@ const Mainmenu = () => {
                 <h2>{pizza.name}</h2>
                 <p>{pizza.info}</p>
                 <p className="ingredients">{pizza.ingredients}</p>
-                <p>Price: {pizza.price} kr</p>
                 <AddToCart showControls={true} />
+              </div>
+              <div className="price-container">
+                <p>{pizza.price} kr</p>
               </div>
             </div>
           </div>
