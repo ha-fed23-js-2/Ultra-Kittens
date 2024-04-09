@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "joi": "^17.12.3",
+    "react-hook-form": "^7.51.2",
     "vite": "^5.2.8"
   }
 }

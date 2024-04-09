@@ -1,0 +1,89 @@
+.form {    
+    max-width: 50%; 
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; 
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -10px; 
+}
+
+label {
+    text-align: start;
+    font-size: 15px;
+    color: #2e2e2e;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #787878;
+    box-shadow: 0px 2px 5px #787878 ;
+}
+
+textarea {
+    min-height: 10em;
+}
+
+.submit-btn {
+    border: 1px solid #787878;
+    width: 40%;
+    background-color: #dd9f42;
+    margin: 1.5em auto;
+    margin-bottom: 5em;
+    font-size: 1.5em;
+}
+
+/* validation */
+
+.form .error {
+	color: rgb(230, 52, 52);
+    margin-top: 0.1em;
+    font-size: 13px;
+}
+
+.form .error.hidden {
+	visibility: hidden;
+}
+
+.valid { 
+    background-image: url('../assets/bx-check.svg'); 
+    background-repeat: no-repeat;
+    background-position: right; 
+    background-size: 20px; 
+}
+
+input:focus {
+    outline: none;
+}
+
+@media (max-width: 800px) {
+    .form {    
+        max-width: 90%;  
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    input, textarea {
+        font-size: 20px;
+    }
+
+    .submit-btn {
+        font-size: 2em;
+    }
+
+    .form .error {
+        font-size: 20px;
+    }
+
+    .valid { 
+        background-size: 24px; 
+    }
+}
