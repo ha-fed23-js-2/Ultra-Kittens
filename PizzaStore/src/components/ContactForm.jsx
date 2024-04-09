@@ -27,17 +27,17 @@ function ContactForm() {
   let nameErrorClass = "error ",
     nameClass = "";
   if (!nameTouched) {
-    nameErrorClass += "hidden";
+    nameErrorClass += "invisible";
   } else {
-    nameErrorClass += nameIsValid ? "hidden" : "invalid";
+    nameErrorClass += nameIsValid ? "invisible" : "invalid";
     nameClass += nameIsValid ? "valid" : "invalid";
   }
   let emailErrorClass = "error ",
     emailClass = "";
   if (!emailTouched) {
-    emailErrorClass += "hidden";
+    emailErrorClass += "invisible";
   } else {
-    emailErrorClass += emailIsValid ? "hidden" : "invalid";
+    emailErrorClass += emailIsValid ? "invisible" : "invalid";
     emailClass += emailIsValid ? "valid" : "invalid";
   }
 

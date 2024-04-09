@@ -47,7 +47,7 @@ textarea {
     font-size: 13px;
 }
 
-.form .error.hidden {
+.invisible {
 	visibility: hidden;
 }
 
