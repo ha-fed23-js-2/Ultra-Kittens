@@ -89,3 +89,7 @@ button.addPizza:hover {
 .ingredients {
   font-style: italic;
 }
+
+.trashCan {
+	cursor: pointer;
+}
