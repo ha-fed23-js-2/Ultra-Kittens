@@ -46,9 +46,12 @@ textarea {
     cursor: pointer;
 }
 
-.submit-btn:hover {
-    box-shadow: 0px 2px 5px var(--shadow-color) inset;
+.submit-btn:disabled {
+    box-shadow: none;
+}
 
+.submit-btn:hover:not(:disabled) {
+    box-shadow: 0px 2px 5px var(--shadow-color) inset;
 }
 
 
