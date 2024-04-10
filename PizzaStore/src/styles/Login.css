@@ -20,12 +20,17 @@
 .form-group {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	/* align-items: center; */
 	margin-top: 1em;
+	text-align: left;
+}
+
+.form-group input {
+	align-self: center;
 }
 
 .login-label {
-	flex-direction: row;
+	margin-left: 0.4em;
 }
 
 .login-container form div input {
