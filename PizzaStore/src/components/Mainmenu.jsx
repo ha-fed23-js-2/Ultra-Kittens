@@ -2,14 +2,14 @@ import { MdOutlineEdit } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
 import React, { useState } from "react";
 import AddToCart from "./AddToCart";
-import { pizzas, addPizza, deletePizza } from "../Data/data.js"; 
+import { pizzas, addPizza, deletePizza } from "../Data/data.js";
 import "../styles/Mainmenu.css";
 import AddPizzaButton from "./AddPizzaButton.jsx";
 
 const Mainmenu = () => {
   const [menuItems, setMenuItems] = useState(pizzas);
   const [editPizza, setEditPizza] = useState(null);
-  const [showAddPizzaButton, setShowAddPizzaButton] = useState(true); 
+  const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
 
   const handleAddPizza = (newPizza) => {
     setMenuItems([...menuItems, newPizza]);
@@ -18,7 +18,7 @@ const Mainmenu = () => {
 
   const handleEditPizza = (pizza) => {
     setEditPizza(pizza);
-    setShowAddPizzaButton(false); 
+    setShowAddPizzaButton(false);
   };
 
   const handleSaveEdit = (editedPizza) => {
@@ -27,13 +27,13 @@ const Mainmenu = () => {
     );
     setMenuItems(updatedMenuItems);
     setEditPizza(null);
-    setShowAddPizzaButton(true); 
+    setShowAddPizzaButton(true);
   };
 
   const handleDeletePizza = (pizzaId) => {
     const updatedMenuItems = menuItems.filter((item) => item.id !== pizzaId);
     setMenuItems(updatedMenuItems);
-    deletePizza(pizzaId); 
+    deletePizza(pizzaId);
   };
 
   return (
@@ -48,28 +48,32 @@ const Mainmenu = () => {
                 alt="imageofpizza"
               />
               <div className="menuItemInfo">
-                <h2>{pizza.name}</h2>
+                <div className="name-Price">
+                  <p>{pizza.name}</p>
+                  <p className="priceItem">{pizza.price} kr</p>
+                </div>
                 <p>{pizza.info}</p>
                 <p className="ingredients">{pizza.ingredients}</p>
-                <AddToCart showControls={true} />
-              </div>
-              <div className="price-container">
-                <p>{pizza.price} kr</p>
-                <div>
-                  
-				<MdOutlineEdit className="trashCan"onClick={() => handleEditPizza(pizza)}/>
-				  
-                  
-				  <FaTrashAlt className="trashCan" onClick={() => handleDeletePizza(pizza.id)}/>
-                </div> 
+                <div className="addToCart-editIcons">
+                  <AddToCart showControls={true} />
+                  <div className="edit-icons">
+                    <MdOutlineEdit
+                      className="edit"
+                      onClick={() => handleEditPizza(pizza)}
+                    />
+
+                    <FaTrashAlt
+                      className="trashCan"
+                      onClick={() => handleDeletePizza(pizza.id)}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
-      {showAddPizzaButton && ( 
-        <AddPizzaButton onAddPizza={handleAddPizza} />
-      )}
+      {showAddPizzaButton && <AddPizzaButton onAddPizza={handleAddPizza} />}
       {editPizza && (
         <AddPizzaButton
           onAddPizza={handleSaveEdit}

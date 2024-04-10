@@ -65,7 +65,6 @@ svg.shopping-Basket-icon {
 
 .menuButton:hover {
   box-shadow: 0px 2px 5px var(--shadow-color) inset;
-
 }
 
 header p {
@@ -78,18 +77,21 @@ header p {
 .backToMain-icon {
   font-size: 3em;
   color: var(--text-color);
+  margin: 0.2em 0;
 }
 .hidden {
   display: none;
 }
 
-@media (max-width: 450px) {
-  header .logo {
-    width: 6em;
-    height: 6em;
+@media (max-width: 550px) {
+  header .backToMain-icon {
+    height: 0.7em;
   }
 
-  header h1 {
-    font-size: 3em;
+  header p {
+    font-size: 1.5em;
+  }
+  header .shoppingCart {
+    font-size: 0.7em;
   }
 }

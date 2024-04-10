@@ -51,13 +51,6 @@ const Header = () => {
       <div className={menuHeader ? "menuHeader" : "menuHeader hidden"}>
         <NavLink to="/">
           <MdOutlineArrowBack className="backToMain-icon" onClick={resetMenu} />
-          {/* 
-            <img
-              className="menu-logo"
-              src={Logo}
-              alt="logo"
-              onClick={resetMenu}
-            /> */}
         </NavLink>
         <p>Menu</p>
         <div className="shoppingCart">

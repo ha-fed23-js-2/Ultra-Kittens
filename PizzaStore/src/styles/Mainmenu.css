@@ -4,52 +4,31 @@
   place-items: center;
 }
 .menuItemContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1em;
-  margin: 2em 3em;
+  padding: 2em;
+  margin: 2em;
   border: 1px solid var(--shadow-color);
   box-shadow: 0px 1px 5px var(--shadow-color);
   border-radius: 36px;
-  background: rgb(254,254,254, 0.51);
-  width: 50%;
+  background: rgb(254, 254, 254, 0.51);
+  width: 47%;
 }
 .menuItemContainer .menuItem {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  flex-grow: 1;
-
+  gap: 5em;
 }
 .pizzaImage {
-  height: 8em;
-  width: auto;
+  height: 9em;
+  width: 9em;
 }
-.menuItemInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+
+.menuItemInfo p {
   text-align: left;
-  margin: 0 2em;
-}
-
-.menuItemInfo h2, .menuItemInfo p {
   margin: 0;
-
-}
-
-.price-container {
-  display: flex;
-  flex-grow: 1;
-  justify-content: end;
-  margin: .5em;
 }
 
 .quantityContainer {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 90px;
   border: 1px solid #232323;
@@ -57,11 +36,9 @@
   place-items: center;
   background: rgba(255, 255, 255, 0.51);
   box-shadow: 0px 2px 2px var(--shadow-color);
-  margin-top: .5em;
-  font-size: 1.2em;
 }
-button.quantityButtonMinus, button.quantityButtonPlus {
-  text-align: center;
+button.quantityButtonMinus,
+button.quantityButtonPlus {
   border: none;
   border-radius: 1em;
   cursor: pointer;
@@ -71,8 +48,8 @@ button.quantityButtonMinus, button.quantityButtonPlus {
 
 button.addPizza {
   text-align: center;
-  border: 1px solid var(--shadow-color) ;
-  border-radius: .8em;
+  border: 1px solid var(--shadow-color);
+  border-radius: 0.8em;
   cursor: pointer;
   background: var(--mustard-color);
   font-size: 1.2em;
@@ -83,13 +60,61 @@ button.addPizza {
 
 button.addPizza:hover {
   box-shadow: 0px 2px 5px var(--shadow-color) inset;
-
 }
 
 .ingredients {
   font-style: italic;
 }
 
+.trashCan,
+.edit {
+  cursor: pointer;
+}
 .trashCan {
-	cursor: pointer;
+  color: red;
+}
+.addToCart-editIcons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5em;
+}
+.edit-icons {
+  display: flex;
+  gap: 1em;
+}
+.name-Price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  font-weight: bold;
+  gap: 1em;
+}
+@media (max-width: 900px) {
+  .pizzaImage {
+    height: 6em;
+    width: 6em;
+  }
+  .menuItemInfo {
+    font-size: 0.8em;
+  }
+
+  .menuItemContainer .menuItem {
+    gap: 1em;
+  }
+}
+@media (max-width: 550px) {
+  .menuItemContainer {
+    width: 70%;
+    padding: 1.5em;
+    margin: 1em;
+  }
+  .pizzaImage {
+    height: 4.5em;
+    width: 4.5em;
+  }
+  .menuItemInfo {
+    font-size: 0.5em;
+  }
 }
