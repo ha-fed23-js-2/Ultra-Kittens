@@ -1,4 +1,4 @@
-.login-container {
+.login-container.login-visible {
 	border: 1px solid black;
 	position: absolute;
 	top: 50%;
@@ -16,6 +16,7 @@
 .login-hidden {
 	display: none;
 }
+
 .form-group {
 	display: flex;
 	flex-direction: column;
@@ -25,7 +26,6 @@
 
 .login-label {
 	flex-direction: row;
-	/* justify-self: flex-start; */
 }
 
 .login-container form div input {

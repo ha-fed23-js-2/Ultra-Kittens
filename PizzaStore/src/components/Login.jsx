@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "../styles/Login.css";
+import Joi from "joi";
 
-const Login = () => {
+const Login = ({ onCancel }) => {
   const [username, setUsername] = useState("");
+  const [usernameTouched, setUsernameTouched] = useState(false)
   const [password, setPassword] = useState("");
+  const [passwordTouched, setPasswordTouched] = useState(false)
+
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -23,8 +27,12 @@ const Login = () => {
     setPassword("");
   };
 
+  const handleCancelClick = () => {
+    onCancel();
+  };
+
   return (
-    <div className="login-container login-hidden">
+    <div className="login-container login-visible">
       <h2>Log in</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -37,7 +45,7 @@ const Login = () => {
           />
         </div>
         <div className="form-group">
-		<label className="login-label">Password:</label>
+          <label className="login-label">Password:</label>
           <input
             type="password"
             value={password}
@@ -45,16 +53,15 @@ const Login = () => {
             required
           />
         </div>
-		<div className="login-btn-container">
-        <button className="login-btn">Log in</button>
-		<button className="login-cancel-btn">Cancel</button>
-		</div>
+        <div className="login-btn-container">
+          <button className="login-btn">Log in</button>
+          <button className="login-cancel-btn" onClick={handleCancelClick}>
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
 export default Login;
-
-
-// {showLogin && <Login />}
