@@ -1,6 +1,18 @@
+import React, { useState } from "react"; // Importera useState från React
+import Login from "./Login"; // Importera din Login-komponent
 import "../styles/Footer.css";
 
 const Footer = () => {
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleAdminLoginClick = () => {
+    setShowLogin(true);
+  };
+
+  const handleCancelClick = () => {
+    setShowLogin(false); // Dölj inloggningsrutan när "Cancel" klickas
+  };
+
   return (
     <footer>
       <div className="footer-container">
@@ -11,7 +23,8 @@ const Footer = () => {
         </div>
         <div className="admin">
           <img src="src/assets/Logo.png" alt="logo" />
-          <p>Admin Login</p>
+          <p className="admin-login-btn" onClick={handleAdminLoginClick}>Admin Login</p>
+          {showLogin && <Login />} {/* Visa Login-komponenten om showLogin är true */}
         </div>
         <div className="times">
           <p>Opening hours:</p>
@@ -20,6 +33,10 @@ const Footer = () => {
           <p>Sun Closed</p>
         </div>
       </div>
+	  <div className={"login-overlay " + (showLogin ? 'login-container' : 'login-hidden')}>
+
+		<Login />
+	  </div>
     </footer>
   );
 };
