@@ -1,5 +1,7 @@
+// AddPizzaButton.jsx
+
 import { useState, useEffect } from "react";
-import { useMenuStore } from "../Data/menuStore.js";
+import useMenuStore from "../Data/menuStore.js";
 import "../styles/AddPizzaOverlay.css";
 
 const AddPizzaButton = ({ initialPizzaData }) => {
@@ -8,62 +10,50 @@ const AddPizzaButton = ({ initialPizzaData }) => {
     name: "",
     info: "",
     ingredients: "",
-    price: 0,
-    image: null,
+    price: "",
   });
 
   useEffect(() => {
     if (initialPizzaData) {
-      setNewPizzaData(initialPizzaData);
+      const ingredientsString = Array.isArray(initialPizzaData.ingredients)
+        ? initialPizzaData.ingredients.join(", ")
+        : initialPizzaData.ingredients;
+      setNewPizzaData({
+        ...initialPizzaData,
+        ingredients: ingredientsString,
+      });
       setShowOverlay(true);
     }
   }, [initialPizzaData]);
 
-  const addNewPizza = useMenuStore((state) => state.newPizza);
-
-  const handleImageChange = (event) => {
-    const imageFile = event.target.files[0];
-    setNewPizzaData({
-      ...newPizzaData,
-      image: imageFile,
-    });
-  };
+  const addOrUpdatePizza = useMenuStore((state) => state.addOrUpdatePizza);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setNewPizzaData({
-      ...newPizzaData,
-      [name]: value,
-    });
+    setNewPizzaData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleAddClick = () => {
-    addNewPizza(
-      newPizzaData.id || Math.random(),
-      newPizzaData.name,
-      newPizzaData.info,
-      newPizzaData.ingredients,
-      newPizzaData.price
-    );
-    setNewPizzaData({
-      name: "",
-      info: "",
-      ingredients: "",
-      price: 0,
-      image: null,
+  const handleAddOrUpdate = () => {
+    addOrUpdatePizza({
+      ...newPizzaData,
+      ingredients: newPizzaData.ingredients
+        .split(", ")
+        .map((ingredient) => ingredient.trim()),
+      price: parseFloat(newPizzaData.price),
     });
+    setNewPizzaData({ name: "", info: "", ingredients: "", price: 0 });
     setShowOverlay(false);
   };
 
   return (
     <div>
       <button className="addPizza" onClick={() => setShowOverlay(true)}>
-        Add New Pizza
+        {initialPizzaData ? "Edit Pizza" : "Add New Pizza"}
       </button>
       {showOverlay && (
         <div className="overlay">
           <div className="form-container">
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <label>Name:</label>
               <input
                 type="text"
@@ -89,16 +79,11 @@ const AddPizzaButton = ({ initialPizzaData }) => {
               <input
                 type="number"
                 name="price"
-                value={newPizzaData.price}
+                value={newPizzaData.price.toString()}
                 onChange={handleInputChange}
               />
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-              />
               <div className="button-container">
-                <button type="button" onClick={handleAddClick}>
+                <button type="button" onClick={handleAddOrUpdate}>
                   {initialPizzaData ? "Save Changes" : "Add Pizza"}
                 </button>
                 <button type="button" onClick={() => setShowOverlay(false)}>
