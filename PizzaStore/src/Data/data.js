@@ -10,21 +10,26 @@ const pizzas = [
 	  id: 2,
 	  name: "Pepperoni-Toni",
 	  info: "Pizza topped with a fine aged cheddar and pepperoni goodness",
-	  ingredients: ["Tomato sauce, ", " Mozarella, ", " Aged Cheddar, ", " Pepperoni Sausage"],
+	  ingredients: ["Tomato sauce, ", "Mozarella, ", "Aged Cheddar, ", "Pepperoni Sausage"],
 	  price: 120
 	},
 	{
 	  id: 3,
 	  name: "Olive-Oliver",
 	  info: "Pizza topped with German olives and Hobbiton tuna",
-	  ingredients: ["Tomato sauce, ", " Mozzarella, ", " Olives, ", " Tuna"],
+	  ingredients: ["Tomato sauce, ", "Mozzarella, ", "Olives, ", "Tuna"],
 	  price: 110
 	}
   ];
-
+  
   const addPizza = (newPizza) => {
-    pizzas.push(newPizza);
+	pizzas.push(newPizza);
   };
   
-  export { pizzas, addPizza }; 
+  const deletePizza = (pizzaId) => {
+	pizzas = pizzas.filter(pizza => pizza.id !== pizzaId);
+  };
+  
+  export { pizzas, addPizza, deletePizza };
   export default pizzas;
+  

@@ -1,15 +1,26 @@
-import React, { useState } from "react";
-import "../styles/AddPizzaOverlay.css"; // Import the CSS file for styling the overlay
+import React, { useState, useEffect } from "react";
+import "../styles/AddPizzaOverlay.css";
 
-const AddPizzaButton = ({ onAddPizza }) => {
+const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [newPizzaData, setNewPizzaData] = useState({
     name: "",
     info: "",
     ingredients: "",
-    price: 0
+    price: 0,
+	image: null
   });
 
+  useEffect(() => {
+    if (initialPizzaData) {
+      setNewPizzaData(initialPizzaData);
+      setShowOverlay(true);
+    }
+  }, [initialPizzaData]);
+
+  
+  const handleImageChange = (event) => {   const imageFile = event.target.files[0];   setNewPizzaData ({     ...newPizzaData,     image: imageFile   }); };
+ 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewPizzaData({
@@ -20,24 +31,23 @@ const AddPizzaButton = ({ onAddPizza }) => {
 
   const handleAddClick = () => {
     const newPizza = {
-      id: Math.random(),
+      id: initialPizzaData ? initialPizzaData.id : Math.random(),
       ...newPizzaData
     };
-    onAddPizza(newPizza); 
+    onAddPizza(newPizza);
     setNewPizzaData({
       name: "",
       info: "",
       ingredients: "",
-      price: 0
+      price: 0,
+	  image: null
     });
-    setShowOverlay(false); 
+    setShowOverlay(false);
   };
-  
 
   return (
     <div>
-      <button className="addPizza" onClick={() => setShowOverlay(true)}>
-        Add New Pizza
+      <button className="addPizza" onClick={() => setShowOverlay(true)}> Add New Pizza
       </button>
       {showOverlay && (
         <div className="overlay">
@@ -71,9 +81,16 @@ const AddPizzaButton = ({ onAddPizza }) => {
                 value={newPizzaData.price}
                 onChange={handleInputChange}
               />
+			
+               <input
+                type="file"
+                accept="image/*" 
+                onChange={handleImageChange}
+              />
+
               <div className="button-container">
                 <button type="button" onClick={handleAddClick}>
-                  Add Pizza
+                  {initialPizzaData ? "Save Changes" : "Add Pizza"}
                 </button>
                 <button type="button" onClick={() => setShowOverlay(false)}>
                   Cancel
