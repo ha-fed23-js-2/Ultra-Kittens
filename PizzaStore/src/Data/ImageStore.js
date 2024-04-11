@@ -7,6 +7,7 @@ const useImageStore = create((set) => ({
   setUploadedImage: (image) => {
     set({ uploadedImage: image });
     localStorage.setItem('uploadedImage', JSON.stringify(image));
+	console.log("lol")
   },
 }));
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../styles/AddPizzaOverlay.css"; // Import the CSS file for styling the overlay
+import "../styles/AddPizzaOverlay.css";
+import { useImageStore } from "../Data/ImageStore.js";
 
 const AddPizzaButton = ({ onAddPizza }) => {
   const [showOverlay, setShowOverlay] = useState(false);
@@ -10,23 +11,18 @@ const AddPizzaButton = ({ onAddPizza }) => {
     price: 0,
     image: null
   });
+  const setUploadedImage = useImageStore((state) => state.setUploadedImage);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setNewPizzaData({
-      ...newPizzaData,
+    setNewPizzaData((prevData) => ({
+      ...prevData,
       [name]: value
-    });
+    }));
   };
 
   const handleAddClick = () => {
-    // Perform validation here before adding the pizza
-
-    const newPizza = {
-      id: Math.random(),
-      ...newPizzaData
-    };
-    onAddPizza(newPizza); 
+    onAddPizza(newPizzaData);
     setNewPizzaData({
       name: "",
       info: "",
@@ -34,24 +30,17 @@ const AddPizzaButton = ({ onAddPizza }) => {
       price: 0,
       image: null
     });
-    setShowOverlay(false); 
+    setShowOverlay(false);
   };
 
   const handleImageChange = (event) => {
     const imageFile = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      const imageDataURL = reader.result;
-      setNewPizzaData({
-        ...newPizzaData,
-        image: imageDataURL
-      });
-    };
-
-    if (imageFile) {
-      reader.readAsDataURL(imageFile);
-    }
+    setNewPizzaData((prevData) => ({
+      ...prevData,
+      image: imageFile
+    }));
+    setUploadedImage(imageFile);
+    console.log("Uploaded Image:", imageFile);
   };
 
   return (
@@ -93,13 +82,13 @@ const AddPizzaButton = ({ onAddPizza }) => {
               />
               <input
                 type="file"
-                accept="image/*" 
+                accept="image/*"
                 onChange={handleImageChange}
               />
               {newPizzaData.image && (
                 <img
                   className="preview-image"
-                  src={newPizzaData.image}
+                  src={URL.createObjectURL(newPizzaData.image)}
                   alt="Selected Image"
                 />
               )}
