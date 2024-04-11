@@ -70,6 +70,8 @@ button.addPizza:hover {
 .edit {
   cursor: pointer;
 }
+
+
 .trashCan {
   color: red;
 }

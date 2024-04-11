@@ -9,7 +9,7 @@ import AddPizzaButton from "./AddPizzaButton.jsx";
 const Mainmenu = () => {
   const [menuItems, setMenuItems] = useState(pizzas);
   const [editPizza, setEditPizza] = useState(null);
-  const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
+  const [showAddPizzaButton, setShowAddPizzaButton] = useState(true)
 
   const handleAddPizza = (newPizza) => {
     setMenuItems([...menuItems, newPizza]);
@@ -63,7 +63,7 @@ const Mainmenu = () => {
                     />
 
                     <FaTrashAlt
-                      className="trashCan"
+                      className="trashCan" 
                       onClick={() => handleDeletePizza(pizza.id)}
                     />
                   </div>
