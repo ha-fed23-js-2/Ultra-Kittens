@@ -17,6 +17,7 @@ footer .admin p {
 
 footer div p {
   margin: 0;
+  text-align: left;
 }
 
 img {
@@ -33,4 +34,21 @@ img {
     height: 4em;
     width: 4em;
   }
+}
+
+.login-overlay.login-visible{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(48,43,40, 0.3);
+	
+}
+
+.admin-login-btn:hover{
+	cursor: pointer;
+	color: var(--text-color);
+	text-decoration: underline;
+	
 }

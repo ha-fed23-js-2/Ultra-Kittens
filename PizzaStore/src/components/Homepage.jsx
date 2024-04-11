@@ -1,5 +1,6 @@
 import "../styles/Homepage.css";
 import ContactForm from "./ContactForm";
+import Login from "./Login"
 
 const HomePage = () => {
   return (
@@ -18,6 +19,7 @@ const HomePage = () => {
       </div>
       <h2>Contact us!</h2>
       <ContactForm />
+	  {/* <Login /> */}
     </div>
   );
 };
