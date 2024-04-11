@@ -26,11 +26,14 @@
   text-align: left;
   margin: 0;
 }
+.menuItemInfo {
+  width: 80%;
+}
 
 .quantityContainer {
   display: flex;
   justify-content: space-between;
-  width: 90px;
+  width: 7em;
   border: 1px solid #232323;
   border-radius: 8px;
   place-items: center;
@@ -98,6 +101,7 @@ button.addPizza:hover {
   }
   .menuItemInfo {
     font-size: 0.8em;
+    width: 80%;
   }
 
   .menuItemContainer .menuItem {
@@ -116,5 +120,9 @@ button.addPizza:hover {
   }
   .menuItemInfo {
     font-size: 0.5em;
+    width: 80%;
+  }
+  .quantityContainer {
+    width: 7em;
   }
 }

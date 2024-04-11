@@ -70,7 +70,6 @@ svg.shopping-Basket-icon {
 header p {
   font-family: var(--text-font);
   font-size: 2em;
-  font-weight: 600;
   margin: 0.4em;
   color: var(--text-color);
 }
@@ -85,13 +84,31 @@ header p {
 
 @media (max-width: 550px) {
   header .backToMain-icon {
-    height: 0.7em;
+    height: 0.8em;
   }
-
+  .shoppingCart .CountCartItemShow {
+    margin: -0.9em;
+    width: 0.9em;
+    height: 0.9em;
+    font-size: 0.8em;
+    padding: 3px;
+  }
   header p {
     font-size: 1.5em;
   }
   header .shoppingCart {
     font-size: 0.7em;
+  }
+  .menuButton {
+    font-size: 30px;
+  }
+
+  header .logo {
+    width: 5em;
+    height: 5em;
+  }
+  header h1 {
+    font-size: 3em;
+    margin-bottom: 0.3em;
   }
 }
