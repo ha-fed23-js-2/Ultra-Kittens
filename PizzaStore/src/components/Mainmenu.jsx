@@ -1,13 +1,15 @@
 import { MdOutlineEdit } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
-import React, { useState } from "react";
+import { useState } from "react";
 import AddToCart from "./AddToCart";
-import { pizzas, addPizza, deletePizza } from "../Data/data.js";
+import { addPizza, deletePizza } from "../Data/data.js";
 import "../styles/Mainmenu.css";
 import AddPizzaButton from "./AddPizzaButton.jsx";
+import { useMenuStore } from "../Data/menuStore.js";
 
 const Mainmenu = () => {
-  const [menuItems, setMenuItems] = useState(pizzas);
+  // const [menuItems, setMenuItems] = useState(pizzas);
+  const menuItems = useMenuStore((state) => state.allPizzas);
   const [editPizza, setEditPizza] = useState(null);
   const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
 
@@ -46,8 +48,8 @@ const Mainmenu = () => {
             initialPizzaData={editPizza}
           />
         )}
-        {menuItems.map((pizza, index) => (
-          <div className="menuItemContainer" key={index}>
+        {menuItems.map((pizza) => (
+          <div className="menuItemContainer" key={pizza.id}>
             <div className="menuItem">
               <img
                 className="pizzaImage"
