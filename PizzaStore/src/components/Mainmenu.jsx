@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import AddToCart from "./AddToCart";
-import { pizzas, addPizza } from "../Data/data.js";
+import { pizzas } from "../Data/data.js"; // Update the import to remove addPizza
 import "../styles/Mainmenu.css";
 import AddPizzaButton from "./AddPizzaButton.jsx";
+// import { useImageStore } from "../Data/ImageStore.js"; // Import the named export
+import { useImageStore } from "../Data/ImageStore.js";
 
 const Mainmenu = () => {
   const [menuItems, setMenuItems] = useState(pizzas);
+  const uploadedImage = useImageStore((state) => state.uploadedImage);
 
   const handleAddPizza = (newPizza) => {
     setMenuItems([...menuItems, newPizza]); 
-    addPizza(newPizza);
   };
 
   return (
@@ -20,7 +22,7 @@ const Mainmenu = () => {
             <div className="menuItem">
               <img
                 className="pizzaImage"
-                src="src/assets/logo.png"
+                src={uploadedImage || "src/assets/logo.png"}
                 alt="imageofpizza"
               />
               <div className="menuItemInfo">

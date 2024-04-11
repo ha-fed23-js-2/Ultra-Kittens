@@ -21,10 +21,11 @@ const pizzas = [
 	  price: 110
 	}
   ];
-
+  
   const addPizza = (newPizza) => {
-    pizzas.push(newPizza);
+	pizzas.push(newPizza);
   };
   
-  export { pizzas, addPizza }; 
+  export { pizzas, addPizza };
   export default pizzas;
+  

@@ -7,7 +7,8 @@ const AddPizzaButton = ({ onAddPizza }) => {
     name: "",
     info: "",
     ingredients: "",
-    price: 0
+    price: 0,
+    image: null
   });
 
   const handleInputChange = (event) => {
@@ -19,6 +20,8 @@ const AddPizzaButton = ({ onAddPizza }) => {
   };
 
   const handleAddClick = () => {
+    // Perform validation here before adding the pizza
+
     const newPizza = {
       id: Math.random(),
       ...newPizzaData
@@ -28,11 +31,28 @@ const AddPizzaButton = ({ onAddPizza }) => {
       name: "",
       info: "",
       ingredients: "",
-      price: 0
+      price: 0,
+      image: null
     });
     setShowOverlay(false); 
   };
-  
+
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const imageDataURL = reader.result;
+      setNewPizzaData({
+        ...newPizzaData,
+        image: imageDataURL
+      });
+    };
+
+    if (imageFile) {
+      reader.readAsDataURL(imageFile);
+    }
+  };
 
   return (
     <div>
@@ -71,6 +91,18 @@ const AddPizzaButton = ({ onAddPizza }) => {
                 value={newPizzaData.price}
                 onChange={handleInputChange}
               />
+              <input
+                type="file"
+                accept="image/*" 
+                onChange={handleImageChange}
+              />
+              {newPizzaData.image && (
+                <img
+                  className="preview-image"
+                  src={newPizzaData.image}
+                  alt="Selected Image"
+                />
+              )}
               <div className="button-container">
                 <button type="button" onClick={handleAddClick}>
                   Add Pizza
