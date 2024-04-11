@@ -39,6 +39,13 @@ const Mainmenu = () => {
   return (
     <div>
       <div className="Container">
+        {showAddPizzaButton && <AddPizzaButton onAddPizza={handleAddPizza} />}
+        {editPizza && (
+          <AddPizzaButton
+            onAddPizza={handleSaveEdit}
+            initialPizzaData={editPizza}
+          />
+        )}
         {menuItems.map((pizza, index) => (
           <div className="menuItemContainer" key={index}>
             <div className="menuItem">
@@ -73,13 +80,6 @@ const Mainmenu = () => {
           </div>
         ))}
       </div>
-      {showAddPizzaButton && <AddPizzaButton onAddPizza={handleAddPizza} />}
-      {editPizza && (
-        <AddPizzaButton
-          onAddPizza={handleSaveEdit}
-          initialPizzaData={editPizza}
-        />
-      )}
     </div>
   );
 };

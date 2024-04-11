@@ -15,7 +15,7 @@
 .menuItemContainer .menuItem {
   display: flex;
   align-items: center;
-  gap: 5em;
+  gap: 2em;
 }
 .pizzaImage {
   height: 9em;
@@ -27,7 +27,7 @@
   margin: 0;
 }
 .menuItemInfo {
-  width: 80%;
+  width: 90%;
 }
 
 .quantityContainer {
