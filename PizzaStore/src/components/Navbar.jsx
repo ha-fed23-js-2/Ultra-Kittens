@@ -1,19 +1,67 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/Navbar.css";
-const Navbar = () => {
+import Logo from "../assets/Logo.png";
+import "../styles/NavBar.css";
+import { RiShoppingBasketLine } from "react-icons/ri";
+import { MdOutlineArrowBack } from "react-icons/md";
+const NavBar = () => {
+  // State to manage the visibility of the headers
+  const [menuHeader, setMenuHeader] = useState(false);
+
+  // Toggle the menu visibility
+  const toggleMenu = () => {
+    setMenuHeader(!menuHeader);
+  };
+
+  // Reset the menu to show the main header and hide the menu header
+  const resetMenu = () => {
+    setMenuHeader(false);
+  };
+
   return (
-    <nav>
-      {/* <ul>
-        <li>
-          <NavLink to="/menu">Meny</NavLink>
-        </li>
-      </ul> */}
-      <div>
-        
-        <NavLink to="/menu"><button className="menuButton">Menu</button></NavLink>
+    <header>
+      <div
+        className={
+          menuHeader ? "mainHeaderContainer hidden" : "mainHeaderContainer"
+        }
+      >
+        <div className="mainHeader">
+          <div className="space"></div>
+          <div className="logo-container">
+            <NavLink to="/">
+              <img className="logo" src={Logo} alt="logo" onClick={resetMenu} />
+            </NavLink>
+            <h1>PizzakällarN</h1>
+          </div>
+          <NavLink to="/cart">
+            <div className="shoppingCart">
+              <RiShoppingBasketLine className="shopping-Basket-icon" />
+              <div className="CountCartItemShow">1</div>
+            </div>
+          </NavLink>
+        </div>
+        <nav>
+          <div>
+            <NavLink to="/menu">
+              <button className="menuButton" onClick={toggleMenu}>
+                Menu
+              </button>
+            </NavLink>
+          </div>
+        </nav>
       </div>
-    </nav>
+      <div className={menuHeader ? "menuHeader" : "menuHeader hidden"}>
+        <NavLink to="/">
+          <MdOutlineArrowBack className="backToMain-icon" onClick={resetMenu} />
+        </NavLink>
+        <p>Menu</p>
+        <div className="shoppingCart">
+          <RiShoppingBasketLine className="shopping-Basket-icon" />
+          <div className="CountCartItemShow">1</div>
+        </div>
+      </div>
+    </header>
   );
 };
 
-export default Navbar;
+export default NavBar;
