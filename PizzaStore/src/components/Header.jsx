@@ -4,9 +4,14 @@ import Logo from "../assets/Logo.png";
 import "../styles/Header.css";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { MdOutlineArrowBack } from "react-icons/md";
+import { IoLogOutOutline } from "react-icons/io5";
+import useAdminStore from "../Data/storeAdmin.js";
+
+
 const Header = () => {
   // State to manage the visibility of the headers
   const [menuHeader, setMenuHeader] = useState(false);
+  const { adminView, setAdminView } = useAdminStore();
 
   // Toggle the menu visibility
   const toggleMenu = () => {
@@ -17,6 +22,10 @@ const Header = () => {
   const resetMenu = () => {
     setMenuHeader(false);
   };
+
+  const logout = () => {
+    setAdminView(false)
+  }
 
   return (
     <header>
@@ -34,8 +43,13 @@ const Header = () => {
             <h1>PizzakällarN</h1>
           </div>
           <div className="shoppingCart">
-            <RiShoppingBasketLine className="shopping-Basket-icon" />
-            <div className="CountCartItemShow">1</div>
+            {!adminView && (
+              <>
+                <RiShoppingBasketLine className="shopping-Basket-icon" />
+                <div className="CountCartItemShow">1</div>
+              </>
+            )}
+            {adminView && <IoLogOutOutline className="logout-icon" onClick={logout}/>}
           </div>
         </div>
         <nav>
