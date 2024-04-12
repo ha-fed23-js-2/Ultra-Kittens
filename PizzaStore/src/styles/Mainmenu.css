@@ -81,7 +81,12 @@ button.addPizza:hover {
   align-items: center;
   margin-top: 1.5em;
 }
-.edit-icons {
+
+.is-hidden {
+  visibility: hidden;
+}
+
+.edit-icons .is-visible {
   display: flex;
   gap: 1em;
 }

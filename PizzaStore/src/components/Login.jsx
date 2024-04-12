@@ -4,6 +4,7 @@ import { useAuthStore } from "../Data/store";
 import "../styles/Login.css";
 import {useNavigate} from "react-router-dom"
 
+
 const Login = ({ onCancel, onLoginClick }) => {
   const [username, setUsername] = useState("");
   const [usernameTouched, setUsernameTouched] = useState(false);

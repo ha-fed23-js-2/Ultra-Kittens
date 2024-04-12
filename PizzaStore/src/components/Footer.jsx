@@ -1,10 +1,12 @@
-
 import React, { useState } from "react"; // Importera useState från React
 import Login from "./Login"; // Importera din Login-komponent
 import "../styles/Footer.css";
+import useAdminStore from "../Data/storeAdmin";
 
 const Footer = ({props}) => {
 const [showLogin, setShowLogin] = useState(false);
+
+const { adminView, setAdminView } = useAdminStore()
 
   const handleAdminLoginClick = () => {
     setShowLogin(true);
@@ -16,6 +18,8 @@ const [showLogin, setShowLogin] = useState(false);
 
   const handleLoginBtnClick = () => {
     setShowLogin(false);
+    setAdminView(true)
+    console.log('adminView:', adminView);
   }
 
   return (
