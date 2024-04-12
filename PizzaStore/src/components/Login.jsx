@@ -3,6 +3,7 @@ import Joi from "joi";
 import { useAuthStore } from "../Data/store";
 import "../styles/Login.css";
 import {useNavigate} from "react-router-dom"
+import UserApi from "../Data/api";
 
 
 const Login = ({ onCancel, onLoginClick }) => {
@@ -35,6 +36,7 @@ const Login = ({ onCancel, onLoginClick }) => {
       resetForm()
       navigate('/menu')
       handleLoginBtnClick()
+      UserApi.updateLoginStatus('Logged in');
      } else {
       setErrorMessages({
         password: "Wrong username or password"

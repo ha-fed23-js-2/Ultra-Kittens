@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.png";
 import "../styles/Header.css";
@@ -6,9 +6,10 @@ import { RiShoppingBasketLine } from "react-icons/ri";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { IoLogOutOutline } from "react-icons/io5";
 import useAdminStore from "../Data/storeAdmin.js";
+import UserApi from "../Data/api.js";
 
 
-const Header = () => {
+const Header = ({isLoggedin, setIsLoggedIn}) => {
   // State to manage the visibility of the headers
   const [menuHeader, setMenuHeader] = useState(false);
   const { adminView, setAdminView } = useAdminStore();
@@ -25,7 +26,17 @@ const Header = () => {
 
   const logout = () => {
     setAdminView(false)
+    UserApi.updateLoginStatus('Logged out')
+    setIsLoggedIn('Logged out')
   }
+
+  useEffect(() => {
+    if (isLoggedin === 'Logged in') {
+      setAdminView(true)
+    } else {
+      setAdminView(false)
+    }
+  },[isLoggedin])
 
   return (
     <header>
