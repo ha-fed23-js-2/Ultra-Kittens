@@ -13,7 +13,7 @@ let pizzas = [
 	  info: "Pizza topped with a fine aged cheddar and pepperoni goodness",
 	  ingredients: ["Tomato sauce, ", "Mozarella, ", "Aged Cheddar, ", "Pepperoni Sausage"],
 	  price: 120,
-	  imageUrl:""
+	  imageUrl:"https://png.pngtree.com/png-clipart/20230928/original/pngtree-pepperoni-pizza-isolated-with-clipping-path-png-image_13007895.png"
 
 	},
 	{
@@ -22,7 +22,7 @@ let pizzas = [
 	  info: "Pizza topped with German olives and Hobbiton tuna",
 	  ingredients: ["Tomato sauce, ", "Mozzarella, ", "Olives, ", "Tuna"],
 	  price: 110,
-	  imageUrl:""
+	  imageUrl:"https://i.ibb.co/Thx2nTM/Pizza1.png"
 	}
   ];
   
