@@ -45,6 +45,22 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
     }
   }, [isLoggedin]);
 
+  const showLoggedout = () => {
+    return (
+      <div className="shoppingCart">
+        {!adminView && (
+          <>
+            <RiShoppingBasketLine className="shopping-Basket-icon" />
+            <div className="CountCartItemShow">1</div>
+          </>
+        )}
+        {adminView && (
+          <IoLogOutOutline className="logout-icon" onClick={logout} />
+        )}
+      </div>
+    );
+  };
+
   return (
     <header>
       {menuHeader ? (
@@ -57,10 +73,7 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
               />
             </NavLink>
             <p>Menu</p>
-            <div className="shoppingCart">
-              <RiShoppingBasketLine className="shopping-Basket-icon" />
-              <div className="CountCartItemShow">1</div>
-            </div>
+            {showLoggedout()}
           </div>
         </>
       ) : (
@@ -79,19 +92,8 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
                 </NavLink>
                 <h1>PizzakällarN</h1>
               </div>
-              <div className="shoppingCart">
-                {!adminView && (
-                  <>
-                    <RiShoppingBasketLine className="shopping-Basket-icon" />
-                    <div className="CountCartItemShow">1</div>
-                  </>
-                )}
-                {adminView && (
-                  <IoLogOutOutline className="logout-icon" onClick={logout} />
-                )}
-              </div>
+            {showLoggedout()}
             </div>
-
             <nav>
               <div>
                 <NavLink to="/menu">
