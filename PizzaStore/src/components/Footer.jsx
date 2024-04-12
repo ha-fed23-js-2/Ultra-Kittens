@@ -19,7 +19,6 @@ const { adminView, setAdminView } = useAdminStore()
   const handleLoginBtnClick = () => {
     setShowLogin(false);
     setAdminView(true)
-    console.log('adminView:', adminView);
   }
 
   return (

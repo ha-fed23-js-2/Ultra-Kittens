@@ -11,11 +11,8 @@ const Mainmenu = () => {
   const [menuItems, setMenuItems] = useState(pizzas);
   const [editPizza, setEditPizza] = useState(null);
   const [showAddPizzaButton, setShowAddPizzaButton] = useState(true)
+  const { adminView } = useAdminStore();
   
-  const {adminView, setAdminView}  = useAdminStore(state => ({
-    adminView: state.adminView,
-    setAdminView: state.setAdminView
-  }))
 
   const handleAddPizza = (newPizza) => {
     setMenuItems([...menuItems, newPizza]);
@@ -63,7 +60,8 @@ const Mainmenu = () => {
                 <p className="ingredients">{pizza.ingredients}</p>
                 <div className="addToCart-editIcons">
                   <AddToCart showControls={true} />
-                  <div className={"edit-icons is-visible" + (adminView ? 'is-visible' : 'is-hidden') }>
+                  {adminView && (
+                  <div className="edit-icons">
                     <MdOutlineEdit
                       className="edit"
                       onClick={() => handleEditPizza(pizza)}
@@ -74,6 +72,7 @@ const Mainmenu = () => {
                       onClick={() => handleDeletePizza(pizza.id)}
                     />
                   </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -58,6 +58,10 @@ button.addPizza {
   box-shadow: 0px 2px 5px var(--shadow-color);
 }
 
+.is-hidden {
+  visibility: hidden;
+}
+
 button.addPizza:hover {
   box-shadow: 0px 2px 5px var(--shadow-color) inset;
 }
@@ -86,7 +90,7 @@ button.addPizza:hover {
   visibility: hidden;
 }
 
-.edit-icons .is-visible {
+.edit-icons {
   display: flex;
   gap: 1em;
 }
