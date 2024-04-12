@@ -72,3 +72,14 @@
 .login-error-message {
 	color: var(--text-color);
 }
+
+
+@media (max-width: 400px) {
+	.login-container {
+	  max-width: 18em;
+	}
+
+	.login-container p {
+		font-size: 1em;
+	}
+}

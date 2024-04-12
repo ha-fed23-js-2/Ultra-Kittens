@@ -2,8 +2,9 @@ import React, { useState } from "react"; // Importera useState från React
 import Login from "./Login"; // Importera din Login-komponent
 import "../styles/Footer.css";
 import useAdminStore from "../Data/storeAdmin";
+import { useEffect } from "react";
 
-const Footer = ({props}) => {
+const Footer = ({isLoggedin}) => {
 const [showLogin, setShowLogin] = useState(false);
 
 const { adminView, setAdminView } = useAdminStore()
@@ -20,6 +21,15 @@ const { adminView, setAdminView } = useAdminStore()
     setShowLogin(false);
     setAdminView(true)
   }
+
+  useEffect(() => {
+    if (isLoggedin === 'Logged in') {
+      setAdminView(true)
+    } else {
+      setAdminView(false)
+    }
+  },[isLoggedin])
+
 
   return (
     <footer>
