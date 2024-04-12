@@ -8,7 +8,6 @@ import UserApi from "./Data/api.js";
 import { useEffect, useState } from "react";
 
 const App = () => {
-
   const [isLoggedin, setIsloggedin] = useState(false)
 
   useEffect(() => {

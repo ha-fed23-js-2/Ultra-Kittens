@@ -8,15 +8,22 @@ import { IoLogOutOutline } from "react-icons/io5";
 import useAdminStore from "../Data/storeAdmin.js";
 import UserApi from "../Data/api.js";
 
-
-const Header = ({isLoggedin, setIsLoggedIn}) => {
+const Header = ({ isLoggedin, setIsLoggedIn }) => {
   // State to manage the visibility of the headers
   const [menuHeader, setMenuHeader] = useState(false);
   const { adminView, setAdminView } = useAdminStore();
+  const [location, setLocation] = useState(window.location.pathname);
+
+  useEffect(() => {
+    if (location === "/menu") {
+      setMenuHeader(true);
+    }
+  }, []);
 
   // Toggle the menu visibility
   const toggleMenu = () => {
     setMenuHeader(!menuHeader);
+    setLocation(window.location.pathname);
   };
 
   // Reset the menu to show the main header and hide the menu header
@@ -25,64 +32,78 @@ const Header = ({isLoggedin, setIsLoggedIn}) => {
   };
 
   const logout = () => {
-    setAdminView(false)
-    UserApi.updateLoginStatus('Logged out')
-    setIsLoggedIn('Logged out')
-  }
+    setAdminView(false);
+    UserApi.updateLoginStatus("Logged out");
+    setIsLoggedIn("Logged out");
+  };
 
   useEffect(() => {
-    if (isLoggedin === 'Logged in') {
-      setAdminView(true)
+    if (isLoggedin === "Logged in") {
+      setAdminView(true);
     } else {
-      setAdminView(false)
+      setAdminView(false);
     }
-  },[isLoggedin])
+  }, [isLoggedin]);
 
   return (
     <header>
-      <div
-        className={
-          menuHeader ? "mainHeaderContainer hidden" : "mainHeaderContainer"
-        }
-      >
-        <div className="mainHeader">
-          <div className="space"></div>
-          <div className="logo-container">
+      {menuHeader ? (
+        <>
+          <div className="menuHeader">
             <NavLink to="/">
-              <img className="logo" src={Logo} alt="logo" onClick={resetMenu} />
+              <MdOutlineArrowBack
+                className="backToMain-icon"
+                onClick={resetMenu}
+              />
             </NavLink>
-            <h1>PizzakällarN</h1>
+            <p>Menu</p>
+            <div className="shoppingCart">
+              <RiShoppingBasketLine className="shopping-Basket-icon" />
+              <div className="CountCartItemShow">1</div>
+            </div>
           </div>
-          <div className="shoppingCart">
-            {!adminView && (
-              <>
-                <RiShoppingBasketLine className="shopping-Basket-icon" />
-                <div className="CountCartItemShow">1</div>
-              </>
-            )}
-            {adminView && <IoLogOutOutline className="logout-icon" onClick={logout}/>}
+        </>
+      ) : (
+        <>
+          <div className="mainHeaderContainer">
+            <div className="mainHeader">
+              <div className="space"></div>
+              <div className="logo-container">
+                <NavLink to="/">
+                  <img
+                    className="logo"
+                    src={Logo}
+                    alt="logo"
+                    onClick={resetMenu}
+                  />
+                </NavLink>
+                <h1>PizzakällarN</h1>
+              </div>
+              <div className="shoppingCart">
+                {!adminView && (
+                  <>
+                    <RiShoppingBasketLine className="shopping-Basket-icon" />
+                    <div className="CountCartItemShow">1</div>
+                  </>
+                )}
+                {adminView && (
+                  <IoLogOutOutline className="logout-icon" onClick={logout} />
+                )}
+              </div>
+            </div>
+
+            <nav>
+              <div>
+                <NavLink to="/menu">
+                  <button className="menuButton" onClick={toggleMenu}>
+                    Menu
+                  </button>
+                </NavLink>
+              </div>
+            </nav>
           </div>
-        </div>
-        <nav>
-          <div>
-            <NavLink to="/menu">
-              <button className="menuButton" onClick={toggleMenu}>
-                Menu
-              </button>
-            </NavLink>
-          </div>
-        </nav>
-      </div>
-      <div className={menuHeader ? "menuHeader" : "menuHeader hidden"}>
-        <NavLink to="/">
-          <MdOutlineArrowBack className="backToMain-icon" onClick={resetMenu} />
-        </NavLink>
-        <p>Menu</p>
-        <div className="shoppingCart">
-          <RiShoppingBasketLine className="shopping-Basket-icon" />
-          <div className="CountCartItemShow">1</div>
-        </div>
-      </div>
+        </>
+      )}
     </header>
   );
 };
