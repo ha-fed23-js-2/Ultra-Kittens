@@ -5,11 +5,14 @@ import AddToCart from "./AddToCart";
 import { pizzas, addPizza, deletePizza } from "../Data/data.js";
 import "../styles/Mainmenu.css";
 import AddPizzaButton from "./AddPizzaButton.jsx";
+import useAdminStore from "../Data/storeAdmin.js";
 
 const Mainmenu = () => {
   const [menuItems, setMenuItems] = useState(pizzas);
   const [editPizza, setEditPizza] = useState(null);
-  const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
+  const [showAddPizzaButton, setShowAddPizzaButton] = useState(true)
+  const { adminView } = useAdminStore();
+  
 
   const handleAddPizza = (newPizza) => {
     setMenuItems([...menuItems, newPizza]);
@@ -36,6 +39,7 @@ const Mainmenu = () => {
     deletePizza(pizzaId);
   };
 
+  
   return (
     <div>
       <div className="Container">
@@ -63,6 +67,7 @@ const Mainmenu = () => {
                 <p className="ingredients">{pizza.ingredients}</p>
                 <div className="addToCart-editIcons">
                   <AddToCart showControls={true} />
+                  {adminView && (
                   <div className="edit-icons">
                     <MdOutlineEdit
                       className="edit"
@@ -70,10 +75,11 @@ const Mainmenu = () => {
                     />
 
                     <FaTrashAlt
-                      className="trashCan"
+                      className="trashCan" 
                       onClick={() => handleDeletePizza(pizza.id)}
                     />
                   </div>
+                  )}
                 </div>
               </div>
             </div>

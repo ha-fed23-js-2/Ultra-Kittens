@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "../styles/Login.css";
 import Joi from "joi";
+import { useAuthStore } from "../Data/store";
+import "../styles/Login.css";
+import {useNavigate} from "react-router-dom"
 
-const Login = ({ onCancel }) => {
+
+const Login = ({ onCancel, onLoginClick }) => {
   const [username, setUsername] = useState("");
   const [usernameTouched, setUsernameTouched] = useState(false);
   const [password, setPassword] = useState("");
@@ -12,26 +15,43 @@ const Login = ({ onCancel }) => {
     password: ""
   });
 
+  const navigate = useNavigate()
+
+  const login = useAuthStore(state => state.login)
+
+
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+    setPassword(event.target.value)
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Validera användarnamn och lösenord innan inloggning
-    validateForm();
-    // Återställ formuläret efter inloggning
-    setUsername("");
-    setPassword("");
+    if (validateForm()) {
+     if ( login(username, password) ) {
+      resetForm()
+      navigate('/menu')
+      handleLoginBtnClick()
+     } else {
+      setErrorMessages({
+        password: "Wrong username or password"
+      })
+     }
+    } else {
+      // valideringen fixar felmeddelande
+    }
   };
 
   const handleCancelClick = () => {
     onCancel();
   };
+
+  const handleLoginBtnClick = () => {
+    onLoginClick()
+  }
 
   const validateForm = () => {
     const schema = Joi.object({
@@ -47,23 +67,24 @@ const Login = ({ onCancel }) => {
         newErrorMessages[item.context.label] = item.message;
       });
       setErrorMessages(newErrorMessages);
+      return false
     } else {
       setErrorMessages({ username: "", password: "" });
+      return true
     }
+  };
+
+  const resetForm = () => {
+    setUsername("");
+    setPassword("");
   };
 
   const getUsernameErrorMessage = () => {
-    if (!username && usernameTouched) {
-      return "Username is required";
-    }
-    return errorMessages.username;
+    return usernameTouched && !username ? "Username is required" : errorMessages.username;
   };
 
   const getPasswordErrorMessage = () => {
-    if (!password && passwordTouched) {
-      return "Password is required";
-    }
-    return errorMessages.password;
+    return passwordTouched && !password ? "Password is required" : errorMessages.password;
   };
 
   return (
@@ -77,8 +98,7 @@ const Login = ({ onCancel }) => {
             value={username}
             onChange={handleUsernameChange}
             onBlur={() => setUsernameTouched(true)}
-            required
-			placeholder="Your username"
+            placeholder="Your username"
           />
           <p className={"login-error-message " + (getUsernameErrorMessage() ? 'visible' : 'invisible')}>
             {getUsernameErrorMessage() || "\u00A0"} 
@@ -91,8 +111,7 @@ const Login = ({ onCancel }) => {
             value={password}
             onChange={handlePasswordChange}
             onBlur={() => setPasswordTouched(true)}
-            required
-			placeholder="Your password"
+            placeholder="Your password"
           />
           <p className={"login-error-message " + (getPasswordErrorMessage() ? 'visible' : 'invisible')}>
             {getPasswordErrorMessage() || "\u00A0"} 
