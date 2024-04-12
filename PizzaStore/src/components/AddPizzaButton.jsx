@@ -8,7 +8,7 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
     info: "",
     ingredients: "",
     price: 0,
-    image: null,
+    imageUrl: "",
   });
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
 
   const handleImageChange = (event) => {
     const imageFile = event.target.files[0];
-    setNewPizzaData({ ...newPizzaData, image: imageFile });
+    setNewPizzaData({ ...newPizzaData, imageUrl: imageFile });
   };
 
   const handleInputChange = (event) => {
@@ -42,7 +42,7 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
       info: "",
       ingredients: "",
       price: 0,
-      image: null,
+      imageUrl: "",
     });
     setShowOverlay(false);
   };
@@ -85,11 +85,12 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
                 value={newPizzaData.price}
                 onChange={handleInputChange}
               />
-
+              <label>Image URL:</label>
               <input
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
+                type="url"
+                name="imageUrl"
+                value={newPizzaData.imageUrl}
+                onChange={handleInputChange}
               />
 
               <div className="button-container">
@@ -109,7 +110,6 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
 };
 
 export default AddPizzaButton;
-
 // AddPizzaButton.jsx
 
 // import { useState, useEffect } from "react";

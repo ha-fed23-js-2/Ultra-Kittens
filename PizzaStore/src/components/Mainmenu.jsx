@@ -53,7 +53,7 @@ const Mainmenu = () => {
             <div className="menuItem">
               <img
                 className="pizzaImage"
-                src="src/assets/logo.png"
+                src={pizza.imageUrl}
                 alt="imageofpizza"
               />
               <div className="menuItemInfo">
