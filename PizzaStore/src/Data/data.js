@@ -3,7 +3,7 @@ let pizzas = [
 	  id: 1,
 	  name: "Vegetariana-Marinara",
 	  info: "Pizza topped with amazing vegetables",
-	  ingredients: ["Tomato sauce, ", "Mozarella, ", "Tomatoes, ", "Olives, ", "Bell Peppers, ", "Basil"],
+	  ingredients: ["Tomato sauce, ", "Mozarella, ", "Tomatoes, ", "Olives, ", "Basil"],
 	  price: 100,
 	  imageUrl:"https://static.vecteezy.com/system/resources/previews/022/149/342/non_2x/hot-italian-pizza-cutout-png.png"
 	},
@@ -19,8 +19,8 @@ let pizzas = [
 	{
 	  id: 3,
 	  name: "Olive-Oliver",
-	  info: "Pizza topped with German olives and Hobbiton tuna",
-	  ingredients: ["Tomato sauce, ", "Mozzarella, ", "Olives, ", "Tuna"],
+	  info: "Pizza topped with German olives and Hobbiton Salami",
+	  ingredients: ["Tomato sauce, ", "Mozzarella, ", "Olives, ", "Salami"],
 	  price: 110,
 	  imageUrl:"https://i.ibb.co/Thx2nTM/Pizza1.png"
 	}
