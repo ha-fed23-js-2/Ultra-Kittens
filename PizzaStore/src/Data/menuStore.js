@@ -34,6 +34,30 @@ function generateId(pizzas) {
 }
 export default useMenuStore;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // removeFriend: (id) => set(state => ({
 //     friends: state.friends.filter(friend => friend.id !== id)
 // }))
