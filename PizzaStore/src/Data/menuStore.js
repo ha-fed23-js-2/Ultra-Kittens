@@ -5,7 +5,7 @@ export const useMenuStore = create((set) => ({
   allPizzas: pizzas,
 
   // list med alla pizzor
-  newPizza: (id, name, info, ingredients, price) =>
+  newPizza: (name, info, ingredients, price) =>
     set((state) => ({
       pizzas: [
         ...state.pizzas,
@@ -33,6 +33,7 @@ function generateId(pizzas) {
   return highest + 1;
 }
 export default useMenuStore;
+
 // removeFriend: (id) => set(state => ({
 //     friends: state.friends.filter(friend => friend.id !== id)
 // }))

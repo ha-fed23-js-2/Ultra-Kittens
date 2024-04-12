@@ -8,13 +8,13 @@ import AddPizzaButton from "./AddPizzaButton.jsx";
 import { useMenuStore } from "../Data/menuStore.js";
 
 const Mainmenu = () => {
-  // const [menuItems, setMenuItems] = useState(pizzas);
-  const menuItems = useMenuStore((state) => state.allPizzas);
+  const [menuItems, setMenuItems] = useState(useMenuStore((state) => state.allPizzas));
   const [editPizza, setEditPizza] = useState(null);
   const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
 
   const handleAddPizza = (newPizza) => {
-    setMenuItems([...menuItems, newPizza]);
+    const updatedMenuItems = [...menuItems, newPizza];
+    setMenuItems(updatedMenuItems);
     addPizza(newPizza);
   };
 
