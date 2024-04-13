@@ -1,21 +1,23 @@
 import { MdOutlineEdit } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
-import React, { useState } from "react";
+import { useState } from "react";
 import AddToCart from "./AddToCart";
-import { pizzas, addPizza, deletePizza } from "../Data/data.js";
+import { addPizza, deletePizza } from "../Data/data.js";
 import "../styles/Mainmenu.css";
 import AddPizzaButton from "./AddPizzaButton.jsx";
-import useAdminStore from "../Data/storeAdmin.js";
+import { useMenuStore } from "../Data/menuStore.js";
 
 const Mainmenu = () => {
-  const [menuItems, setMenuItems] = useState(pizzas);
+  const [menuItems, setMenuItems] = useState(
+    useMenuStore((state) => state.allPizzas)
+  );
   const [editPizza, setEditPizza] = useState(null);
-  const [showAddPizzaButton, setShowAddPizzaButton] = useState(true)
+  const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
   const { adminView } = useAdminStore();
-  
 
   const handleAddPizza = (newPizza) => {
-    setMenuItems([...menuItems, newPizza]);
+    const updatedMenuItems = [...menuItems, newPizza];
+    setMenuItems(updatedMenuItems);
     addPizza(newPizza);
   };
 
@@ -39,7 +41,6 @@ const Mainmenu = () => {
     deletePizza(pizzaId);
   };
 
-  
   return (
     <div>
       <div className="Container">
@@ -50,12 +51,12 @@ const Mainmenu = () => {
             initialPizzaData={editPizza}
           />
         )}
-        {menuItems.map((pizza, index) => (
-          <div className="menuItemContainer" key={index}>
+        {menuItems.map((pizza) => (
+          <div className="menuItemContainer" key={pizza.id}>
             <div className="menuItem">
               <img
                 className="pizzaImage"
-                src="src/assets/logo.png"
+                src={pizza.imageUrl}
                 alt="imageofpizza"
               />
               <div className="menuItemInfo">
@@ -68,17 +69,17 @@ const Mainmenu = () => {
                 <div className="addToCart-editIcons">
                   <AddToCart showControls={true} />
                   {adminView && (
-                  <div className="edit-icons">
-                    <MdOutlineEdit
-                      className="edit"
-                      onClick={() => handleEditPizza(pizza)}
-                    />
+                    <div className="edit-icons">
+                      <MdOutlineEdit
+                        className="edit"
+                        onClick={() => handleEditPizza(pizza)}
+                      />
 
-                    <FaTrashAlt
-                      className="trashCan" 
-                      onClick={() => handleDeletePizza(pizza.id)}
-                    />
-                  </div>
+                      <FaTrashAlt
+                        className="trashCan"
+                        onClick={() => handleDeletePizza(pizza.id)}
+                      />
+                    </div>
                   )}
                 </div>
               </div>
@@ -91,3 +92,88 @@ const Mainmenu = () => {
 };
 
 export default Mainmenu;
+
+// import "../styles/Mainmenu.css";
+
+// import { useState } from "react";
+// import useMenuStore from "../Data/menuStore.js";
+// import AddPizzaButton from "./AddPizzaButton";
+// import AddToCart from "./AddToCart";
+// import { MdOutlineEdit } from "react-icons/md";
+// import { FaTrashAlt } from "react-icons/fa";
+
+// const Mainmenu = () => {
+//   const allPizzas = useMenuStore((state) => state.allPizzas);
+
+//   const [editPizza, setEditPizza] = useState(false);
+//   const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
+
+//   const handleAddPizza = (newPizza) => {
+//     useMenuStore.getState().addOrUpdatePizza(newPizza);
+//   };
+
+//   const handleEditPizza = (pizza) => {
+//     setEditPizza(pizza);
+//     setShowAddPizzaButton(false);
+//   };
+
+//   const handleSaveEdit = (editedPizza) => {
+//     useMenuStore.getState().addOrUpdatePizza(editedPizza);
+//     // setEditPizza(true);
+//     // setShowAddPizzaButton(true);
+//   };
+
+//   const handleDeletePizza = (id) => {
+//     useMenuStore.getState().deletePizza(id);
+//   };
+
+//   return (
+//     <div className="Container">
+//       {showAddPizzaButton && <AddPizzaButton onAddPizza={handleAddPizza} />}
+//       {editPizza && (
+//         <AddPizzaButton
+//           onAddPizza={handleSaveEdit}
+//           initialPizzaData={editPizza}
+//         />
+//       )}
+//       {allPizzas.map((pizza) => (
+//         <div className="menuItemContainer" key={pizza.id}>
+//           <div className="menuItem">
+//             <img
+//               className="pizzaImage"
+//               src="src/assets/logo.png"
+//               alt="image of pizza"
+//             />
+//             <div className="menuItemInfo">
+//               <div className="name-Price">
+//                 <p>{pizza.name}</p>
+//                 <p className="priceItem">{pizza.price} kr</p>
+//               </div>
+//               <p>{pizza.info}</p>
+//               <p className="ingredients">
+//                 {Array.isArray(pizza.ingredients)
+//                   ? pizza.ingredients.join(", ")
+//                   : pizza.ingredients}
+//               </p>
+//               <div className="addToCart-editIcons">
+//                 <AddToCart showControls={true} />
+//                 <div className="edit-icons">
+//                   <MdOutlineEdit
+//                     className="edit"
+//                     onClick={() => handleEditPizza(pizza)}
+//                   />
+//                   <FaTrashAlt
+//                     className="trashCan"
+//                     onClick={() => handleDeletePizza(pizza.id)}
+//                   />
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Mainmenu;
