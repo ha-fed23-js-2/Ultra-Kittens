@@ -1,8 +1,10 @@
 import "../styles/Mainmenu.css";
 import "../styles/cart.css";
+{
+  /* <CartProduct />; */
+}
 import image from "../assets/03.png";
 import AddToCart from "../components/AddToCart";
-
 const Cart = () => {
   return (
     <div className="cart-Container">
@@ -39,3 +41,13 @@ const Cart = () => {
 };
 
 export default Cart;
+// import CartProduct from "../components/cartProduct.jsx";
+// import Cartdata from "../Data/data.js";
+// const Cart = () => {
+//   return (
+//     <div>
+//       <CartProduct data={Cartdata} />
+//     </div>
+//   );
+// };
+// export default Cart;

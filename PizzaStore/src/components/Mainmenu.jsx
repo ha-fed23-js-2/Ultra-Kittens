@@ -6,6 +6,7 @@ import { addPizza, deletePizza } from "../Data/data.js";
 import "../styles/Mainmenu.css";
 import AddPizzaButton from "./AddPizzaButton.jsx";
 import { useMenuStore } from "../Data/menuStore.js";
+import useAdminStore from "../Data/storeAdmin";
 
 const Mainmenu = () => {
   const [menuItems, setMenuItems] = useState(
