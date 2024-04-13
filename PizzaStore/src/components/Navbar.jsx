@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/Logo.png";
-import "../styles/NavBar.css";
+import "../styles/Navbar.css";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { MdOutlineArrowBack } from "react-icons/md";
 const NavBar = () => {
@@ -56,8 +56,12 @@ const NavBar = () => {
         </NavLink>
         <p>Menu</p>
         <div className="shoppingCart">
-          <RiShoppingBasketLine className="shopping-Basket-icon" />
-          <div className="CountCartItemShow">1</div>
+          <NavLink to="/cart">
+            <div className="shoppingCart">
+              <RiShoppingBasketLine className="shopping-Basket-icon" />
+              <div className="CountCartItemShow">1</div>
+            </div>
+          </NavLink>
         </div>
       </div>
     </header>

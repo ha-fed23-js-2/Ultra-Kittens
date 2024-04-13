@@ -4,7 +4,7 @@ import HomePage from "./components/Homepage.jsx";
 import Mainmenu from "./components/Mainmenu.jsx";
 import Cart from "./pages/cart.jsx";
 import Footer from "./components/Footer.jsx";
-import NavBar from "./components/NavBar.jsx";
+import NavBar from "./components/Navbar.jsx";
 
 const App = () => {
   return (
