@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../styles/AddPizzaOverlay.css";
+import useAdminStore from "../Data/storeAdmin";
 
 const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
+  const {adminView} = useAdminStore()
   const [showOverlay, setShowOverlay] = useState(false);
   const [newPizzaData, setNewPizzaData] = useState({
     name: "",
@@ -49,10 +51,10 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
 
   return (
     <div>
-      <button className="addPizza" onClick={() => setShowOverlay(true)}>
-        {" "}
-        Add New Pizza
-      </button>
+      {adminView && (
+      <button className="addPizza"  onClick={() => setShowOverlay(true)}> Add New Pizza </button>
+      )}
+      {!adminView && <div style={{ height: "45px" }}></div>}
       {showOverlay && (
         <div className="overlay">
           <div className="form-container">

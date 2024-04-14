@@ -1,19 +1,35 @@
-
 import React, { useState } from "react"; // Importera useState från React
 import Login from "./Login"; // Importera din Login-komponent
 import "../styles/Footer.css";
+import useAdminStore from "../Data/storeAdmin";
+import { useEffect } from "react";
 
-const Footer = () => {
-  const [showLogin, setShowLogin] = useState(false);
+const Footer = ({isLoggedin}) => {
+const [showLogin, setShowLogin] = useState(false);
+
+const { adminView, setAdminView } = useAdminStore()
 
   const handleAdminLoginClick = () => {
     setShowLogin(true);
-    console.log('true');
   };
 
   const handleCancelClick = () => {
     setShowLogin(false); // Dölj inloggningsrutan när "Cancel" klickas
   };
+
+  const handleLoginBtnClick = () => {
+    setShowLogin(false);
+    setAdminView(true)
+  }
+
+  useEffect(() => {
+    if (isLoggedin === 'Logged in') {
+      setAdminView(true)
+    } else {
+      setAdminView(false)
+    }
+  },[isLoggedin])
+
 
   return (
     <footer>
@@ -35,10 +51,13 @@ const Footer = () => {
         </div>
       </div>
 	  <div className={"login-overlay " + (showLogin ? 'login-visible' : 'login-hidden')}>
-		<Login onCancel={handleCancelClick} />
+		<Login onCancel={handleCancelClick} onLoginClick={handleLoginBtnClick} />
 	  </div>
     </footer>
   );
 };
 
 export default Footer;
+
+Footer.jsx
+
