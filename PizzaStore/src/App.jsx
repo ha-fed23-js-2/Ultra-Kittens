@@ -8,32 +8,35 @@ import UserApi from "./Data/api.js";
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [isLoggedin, setIsloggedin] = useState(false)
+	const [isLoggedin, setIsloggedin] = useState(false)
 
-  useEffect(() => {
-    (async () => {
-      const loggedinStatus = await UserApi.getLoginStatus();
-      console.log(loggedinStatus);
-      setIsloggedin(loggedinStatus);
-    })();
-  
-    return () => {
-      // this now gets called when the component unmounts
-    };
-  }, []);
+	useEffect(() => {
+		(async () => {
+			const loggedinStatus = await UserApi.getLoginStatus();
+			console.log(loggedinStatus);
+			setIsloggedin(loggedinStatus);
+		})();
 
-  return (
-    <Router>
-      <div className="App">
-        <Header isLoggedin={isLoggedin} setIsLoggedIn={(value) => {setIsloggedin(value)}}/>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<Mainmenu />} />
-        </Routes>
-        <Footer isLoggedin={isLoggedin}/>
-      </div>
-    </Router>
-  );
+		return () => {
+			// this now gets called when the component unmounts
+		};
+	}, []);
+
+	return (
+		<Router>
+			<div className="App">
+				<Header isLoggedin={isLoggedin} setIsLoggedIn={(value) => { setIsloggedin(value) }} />
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/menu" element={<Mainmenu />} />
+				</Routes>
+			<Footer isLoggedin={isLoggedin} />
+			</div>
+
+		</Router>
+	);
 };
 
 export default App;
+
+

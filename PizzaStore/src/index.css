@@ -1,12 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inspiration&family=Poppins:ital,wght@0,100;0,200;0,300");
 
-body {
-  background-image: url(./assets/blob-scene-haikei.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  
-}
+
 
 :root {
   --bg-color: #FFF6E9;

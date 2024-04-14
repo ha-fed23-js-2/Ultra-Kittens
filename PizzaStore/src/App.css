@@ -5,10 +5,9 @@ body {
   box-sizing: border-box;
   text-align: center;
   cursor: url(assets/pizza-arrow.png), auto;
+  background-image: url(./assets/blob-scene-haikei.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-} */
