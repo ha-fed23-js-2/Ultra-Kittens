@@ -72,18 +72,12 @@ const Mainmenu = () => {
                 <p>{pizza.info}</p>
                 <p className="ingredients">{pizza.ingredients}</p>
                 <div className="addToCart-editIcons">
-                  {/* <button onClick={() => addToCart(pizza)}>Add to Cart</button>{" "} */}
-                  {/* Add to Cart button */}
                   <AddToCart
                     item={pizza}
                     id={pizza.id}
                     quantity={findQuantity(pizza.id)}
                   />
-                  {/* <AddToCart
-                    item={pizza}
-                    id={pizza.id}
-                    quantity={pizza.quantity || 0}
-                  /> */}
+
                   {adminView && (
                     <div className="edit-icons">
                       <MdOutlineEdit

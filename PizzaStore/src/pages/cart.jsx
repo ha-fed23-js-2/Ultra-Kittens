@@ -1,4 +1,3 @@
-import React from "react";
 import useCartStore from "../Data/cartStore";
 import AddToCart from "../components/AddToCart";
 import "../styles/cart.css";
@@ -7,13 +6,19 @@ const Cart = () => {
   const cartItems = useCartStore((state) => state.cartItems); // Using cartItems
 
   if (cartItems.length === 0) {
-    return <div className="cart-container">Din varukorg är tom.</div>;
+    return (
+      <div className="cart-empty">
+        <div className="cart">
+          <h1>Your cart is empty.</h1>
+        </div>
+      </div>
+    );
   }
 
-  const totalQuantity = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
+  // const totalQuantity = cartItems.reduce(
+  //   (total, item) => total + item.quantity,
+  //   0
+  // );
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.quantity * item.price,
     0
@@ -52,7 +57,8 @@ const Cart = () => {
           ))}
         </div>
         <div className="totalInfo">
-          <p>Totalt pris: {totalPrice} kr</p>
+          <p>Totalt pris: </p>
+          <p>{totalPrice} kr</p>
           {/* <p>Totalt antal artiklar: {totalQuantity}</p> */}
         </div>
         <div className="cart-btn">

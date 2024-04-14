@@ -1,3 +1,9 @@
+.cart-empty {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  padding: 1em;
+}
 .cart-Container {
   display: flex;
   /* flex-direction: row; */
@@ -9,7 +15,7 @@
   flex-direction: row;
   font-size: 2em;
   font-weight: 600;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   gap: 3em;
 }
 .cart {
@@ -47,7 +53,6 @@
   .cart {
     width: 80%;
     padding: 1em;
-    /* margin: ; */
   }
   .cart .totalInfo {
     font-size: 1.7em;
