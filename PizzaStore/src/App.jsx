@@ -30,8 +30,8 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<Mainmenu />} />
         </Routes>
-      </div>
         <Footer isLoggedin={isLoggedin}/>
+      </div>
      
     </Router>
   );

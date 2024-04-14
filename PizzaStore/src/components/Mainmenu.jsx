@@ -102,13 +102,15 @@ const Mainmenu = () => {
           <AddPizzaButton
             onAddPizza={handleAddPizza}
             setShowAddPizzaButton={setShowAddPizzaButton}
+            handleCancelEdit={handleCancelEdit}
           />
         )}
         {editPizza && (
           <AddPizzaButton
             onAddPizza={handleSaveEdit}
-            handleCancelEdit={handleCancelEdit}
             initialPizzaData={editPizza}
+            handleCancelEdit={handleCancelEdit}
+
           />
         )}
         {Array.isArray(menuItems) &&
