@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/AddPizzaOverlay.css";
 import useAdminStore from "../Data/storeAdmin";
 
-const AddPizzaButton = ({ onAddPizza, initialPizzaData,setShowAddPizzaButton }) => {
+const AddPizzaButton = ({ onAddPizza, initialPizzaData,handleCancelEdit}) => {
   const {adminView} = useAdminStore()
   const [showOverlay, setShowOverlay] = useState(false);
   const [newPizzaData, setNewPizzaData] = useState({
@@ -44,6 +44,10 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData,setShowAddPizzaButton }) 
   };
 
   const handleCancelclick = () => {
+    console.log('cancel butn clicked');
+    handleCancelEdit()
+    setShowOverlay(false);
+
     setNewPizzaData({
       name: "",
       info: "",
@@ -51,8 +55,6 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData,setShowAddPizzaButton }) 
       price: 0,
       imageUrl: "",
     });
-    setShowOverlay(false)
- 
   }
 
   return (

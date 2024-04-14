@@ -67,10 +67,17 @@ const Mainmenu = () => {
       );
       setMenuItems(updatedMenuItems);
       await PizzaApi.updatePizzaMenu(updatedMenuItems);
+      setEditPizza(null)
+      setShowAddPizzaButton(true)
     } catch (error) {
       console.error("Error saving edit:", error);
     }
   };
+
+  const handleCancelEdit = () => {
+    setEditPizza(null);
+    setShowAddPizzaButton(true)
+  }
 
   // const handleDeletePizza = (pizzaId) => {
   //   const updatedMenuItems = menuItems.filter((item) => item.id !== pizzaId);
@@ -100,6 +107,7 @@ const Mainmenu = () => {
         {editPizza && (
           <AddPizzaButton
             onAddPizza={handleSaveEdit}
+            handleCancelEdit={handleCancelEdit}
             initialPizzaData={editPizza}
           />
         )}
