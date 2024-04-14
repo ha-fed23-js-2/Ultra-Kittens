@@ -7,7 +7,7 @@ import "../styles/Mainmenu.css";
 import AddPizzaButton from "./AddPizzaButton.jsx";
 import { useMenuStore } from "../Data/menuStore.js";
 import useAdminStore from "../Data/storeAdmin";
-
+import useCartStore from "../Data/cartStore";
 const Mainmenu = () => {
   const [menuItems, setMenuItems] = useState(
     useMenuStore((state) => state.allPizzas)
@@ -15,7 +15,6 @@ const Mainmenu = () => {
   const [editPizza, setEditPizza] = useState(null);
   const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
   const { adminView } = useAdminStore();
-
   const handleAddPizza = (newPizza) => {
     const updatedMenuItems = [...menuItems, newPizza];
     setMenuItems(updatedMenuItems);
@@ -41,7 +40,12 @@ const Mainmenu = () => {
     setMenuItems(updatedMenuItems);
     deletePizza(pizzaId);
   };
-
+  const cartItems = useCartStore((state) => state.cartItems);
+  // Function to find quantity of a specific pizza in the cart
+  const findQuantity = (pizzaId) => {
+    const item = cartItems.find((item) => item.id === pizzaId);
+    return item ? item.quantity : 0;
+  };
   return (
     <div>
       <div className="Container">
@@ -68,7 +72,18 @@ const Mainmenu = () => {
                 <p>{pizza.info}</p>
                 <p className="ingredients">{pizza.ingredients}</p>
                 <div className="addToCart-editIcons">
-                  <AddToCart showControls={true} />
+                  {/* <button onClick={() => addToCart(pizza)}>Add to Cart</button>{" "} */}
+                  {/* Add to Cart button */}
+                  <AddToCart
+                    item={pizza}
+                    id={pizza.id}
+                    quantity={findQuantity(pizza.id)}
+                  />
+                  {/* <AddToCart
+                    item={pizza}
+                    id={pizza.id}
+                    quantity={pizza.quantity || 0}
+                  /> */}
                   {adminView && (
                     <div className="edit-icons">
                       <MdOutlineEdit

@@ -4,6 +4,7 @@ import Logo from "../assets/Logo.png";
 import "../styles/Navbar.css";
 import { RiShoppingBasketLine } from "react-icons/ri";
 import { MdOutlineArrowBack } from "react-icons/md";
+import useCartStore from "../Data/cartStore";
 const NavBar = () => {
   // State to manage the visibility of the headers
   const [menuHeader, setMenuHeader] = useState(false);
@@ -17,7 +18,9 @@ const NavBar = () => {
   const resetMenu = () => {
     setMenuHeader(false);
   };
-
+  const totalQuantity = useCartStore((state) =>
+    state.cartItems.reduce((total, item) => total + item.quantity, 0)
+  );
   return (
     <header>
       <div
@@ -36,7 +39,7 @@ const NavBar = () => {
           <NavLink to="/cart">
             <div className="shoppingCart">
               <RiShoppingBasketLine className="shopping-Basket-icon" />
-              <div className="CountCartItemShow">1</div>
+              <div className="CountCartItemShow">{totalQuantity}</div>
             </div>
           </NavLink>
         </div>
@@ -59,7 +62,7 @@ const NavBar = () => {
           <NavLink to="/cart">
             <div className="shoppingCart">
               <RiShoppingBasketLine className="shopping-Basket-icon" />
-              <div className="CountCartItemShow">1</div>
+              <div className="CountCartItemShow">{totalQuantity}</div>
             </div>
           </NavLink>
         </div>
