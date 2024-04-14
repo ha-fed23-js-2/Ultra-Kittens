@@ -1,16 +1,13 @@
-.mainHeader {
+.mainHeader,
+.menuHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
   padding: 1em;
 }
-.menuHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  place-items: center;
-  padding: 0 2em;
+.menuText {
+  padding: 0;
 }
 header .space {
   padding-left: 4em;
@@ -97,14 +94,15 @@ header p {
 .backToMain-icon {
   font-size: 3em;
   color: var(--text-color);
-  margin: 0.2em 0;
+  /* margin: 0.2em; */
+  padding-top: 0.3em;
 }
 .hidden {
   display: none;
 }
 @media (max-width: 900px) {
   header .backToMain-icon {
-    height: 0.6em;
+    font-size: 2em;
   }
   .shoppingCart .CountCartItemShow {
     margin: -0.9em;
@@ -134,9 +132,6 @@ header p {
   }
 }
 @media (max-width: 550px) {
-  header .backToMain-icon {
-    height: 0.6em;
-  }
   .shoppingCart .CountCartItemShow {
     margin: -0.9em;
     width: 1em;
