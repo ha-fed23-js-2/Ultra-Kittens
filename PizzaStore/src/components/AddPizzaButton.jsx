@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/AddPizzaOverlay.css";
 import useAdminStore from "../Data/storeAdmin";
 
-const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
+const AddPizzaButton = ({ onAddPizza, initialPizzaData,handleCancelEdit}) => {
   const {adminView} = useAdminStore()
   const [showOverlay, setShowOverlay] = useState(false);
   const [newPizzaData, setNewPizzaData] = useState({
@@ -10,7 +10,7 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
     info: "",
     ingredients: "",
     price: 0,
-	image: null
+    imageUrl: "",
   });
 
   useEffect(() => {
@@ -20,32 +20,46 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
     }
   }, [initialPizzaData]);
 
-  
-  const handleImageChange = (event) => {   const imageFile = event.target.files[0];   setNewPizzaData ({     ...newPizzaData,     image: imageFile   }); };
- 
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setNewPizzaData({ ...newPizzaData, imageUrl: imageFile });
+  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewPizzaData({
       ...newPizzaData,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleAddClick = () => {
     const newPizza = {
       id: initialPizzaData ? initialPizzaData.id : Math.random(),
-      ...newPizzaData
+      ...newPizzaData,
     };
     onAddPizza(newPizza);
+    setShowOverlay(false);
+    resetForm()
+
+  };
+
+  const handleCancelclick = () => {
+    console.log('cancel butn clicked');
+    handleCancelEdit()
+    setShowOverlay(false);
+    resetForm()
+  }
+
+  const resetForm = () => {
     setNewPizzaData({
       name: "",
       info: "",
       ingredients: "",
       price: 0,
-	  image: null
+      imageUrl: "",
     });
-    setShowOverlay(false);
-  };
+  }
 
   return (
     <div>
@@ -85,18 +99,19 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData }) => {
                 value={newPizzaData.price}
                 onChange={handleInputChange}
               />
-			
-               <input
-                type="file"
-                accept="image/*" 
-                onChange={handleImageChange}
+              <label>Image URL:</label>
+              <input
+                type="url"
+                name="imageUrl"
+                value={newPizzaData.imageUrl}
+                onChange={handleInputChange}
               />
 
               <div className="button-container">
                 <button type="button" onClick={handleAddClick}>
                   {initialPizzaData ? "Save Changes" : "Add Pizza"}
                 </button>
-                <button type="button" onClick={() => setShowOverlay(false)}>
+                <button type="button" onClick={handleCancelclick}>
                   Cancel
                 </button>
               </div>
