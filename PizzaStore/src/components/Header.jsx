@@ -16,7 +16,7 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
   const [location, setLocation] = useState(window.location.pathname);
 
   useEffect(() => {
-    if (location === "/menu") {
+    if (location === "/menu" || location === "/cart") {
       setMenuHeader(true);
     }
   }, []);

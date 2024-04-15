@@ -116,12 +116,16 @@ const Mainmenu = () => {
                   </div>
                   <p>{pizza.info}</p>
                   <p className="ingredients">{pizza.ingredients}</p>
+                  
                   <div className="addToCart-editIcons">
+                    {!adminView && (
                     <AddToCart
                       item={pizza}
                       id={pizza.id}
                       quantity={findQuantity(pizza.id)}
                     />
+                  )}
+                  
                     {adminView && (
                       <div className="edit-icons">
                         <MdOutlineEdit
