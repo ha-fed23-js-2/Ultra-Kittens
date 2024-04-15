@@ -40,6 +40,7 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData,handleCancelEdit}) => {
     };
     onAddPizza(newPizza);
     setShowOverlay(false);
+    resetForm()
 
   };
 
@@ -47,7 +48,10 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData,handleCancelEdit}) => {
     console.log('cancel butn clicked');
     handleCancelEdit()
     setShowOverlay(false);
+    resetForm()
+  }
 
+  const resetForm = () => {
     setNewPizzaData({
       name: "",
       info: "",
