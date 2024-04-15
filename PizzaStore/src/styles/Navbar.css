@@ -1,4 +1,4 @@
-.mainHeader,
+/* .mainHeader,
 .menuHeader {
   display: flex;
   flex-direction: row;
@@ -95,7 +95,7 @@ header p {
   font-size: 3em;
   color: var(--text-color);
   /* margin: 0.2em; */
-  padding-top: 0.3em;
+  /* padding-top: 0.3em;
 }
 .hidden {
   display: none;
@@ -158,4 +158,4 @@ header p {
     font-size: 3em;
     margin-bottom: 0.3em;
   }
-}
+} */ 

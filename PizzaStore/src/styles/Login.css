@@ -27,6 +27,7 @@
 
 .form-group input {
 	align-self: center;
+	font-size: 1em;
 }
 
 .login-label {
@@ -74,6 +75,11 @@
 }
 
 
+
+
+
+
+
 @media (max-width: 400px) {
 	.login-container {
 	  max-width: 18em;
@@ -82,4 +88,6 @@
 	.login-container p {
 		font-size: 1em;
 	}
+
+
 }

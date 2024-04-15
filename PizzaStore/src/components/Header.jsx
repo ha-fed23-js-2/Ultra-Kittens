@@ -89,9 +89,9 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
               />
             </NavLink>
             <NavLink to="/menu">
-              <div className="menuText">
+              {/* <div className="menuText"> */}
                 <h2>Menu</h2>
-              </div>
+              {/* </div> */}
             </NavLink>
             {showLoggedout()}
           </div>

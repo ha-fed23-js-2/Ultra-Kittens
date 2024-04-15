@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   place-items: center;
+  margin-bottom: 2em;
 }
 .menuItemContainer {
   padding: 2em;
@@ -56,7 +57,7 @@ button.addPizza {
   cursor: pointer;
   background: var(--mustard-color);
   font-size: 1.2em;
-  margin-bottom: 1.5em;
+  margin-top: 1.5em;
   padding: 0.2em 1em;
   box-shadow: 0px 2px 5px var(--shadow-color);
 }
@@ -104,6 +105,20 @@ button.addPizza:hover {
   font-weight: bold;
   gap: 1em;
 }
+
+@media (min-width: 1700px) {
+	.menuItemContainer {
+		max-width: 50em;
+	}
+}
+
+@media (max-width: 1080px) {
+	.menuItemContainer {
+		width: 70%;
+	  }
+}
+
+
 @media (max-width: 900px) {
   .pizzaImage {
     height: 6em;
@@ -117,6 +132,8 @@ button.addPizza:hover {
   .menuItemContainer .menuItem {
     gap: 1em;
   }
+
+
 }
 @media (max-width: 550px) {
   .menuItemContainer {
@@ -129,10 +146,24 @@ button.addPizza:hover {
     width: 4.5em;
   }
   .menuItemInfo {
-    font-size: 0.5em;
-    width: 60%;
+    font-size: 0.7em;
+
   }
   .quantityContainer {
     width: 7em;
   }
+}
+
+@media (max-width: 380px) {
+	.menuItemContainer {
+		padding: 1em 0.5em;
+		width: 90%;
+	}
+
+	.addToCart-editIcons {
+		justify-content: center;
+	}
+	.menuItem {
+		flex-direction: column;
+	}
 }
