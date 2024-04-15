@@ -1,11 +1,25 @@
+import { useState } from "react";
 import useCartStore from "../Data/cartStore";
 import AddToCart from "../components/AddToCart";
 import "../styles/cart.css";
 
 const Cart = () => {
-  const cartItems = useCartStore((state) => state.cartItems); // Using cartItems
+  const { cartItems, clearCart } = useCartStore((state) => ({
+    cartItems: state.cartItems,
+    clearCart: state.clearCart,
+  }));
+  const [checkoutComplete, setCheckoutComplete] = useState(false);
 
   if (cartItems.length === 0) {
+    if (checkoutComplete) {
+      return (
+        <div className="cart-empty">
+          <div className="cart">
+            <h1>Your order has been placed successfully!</h1>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="cart-empty">
         <div className="cart">
@@ -19,6 +33,11 @@ const Cart = () => {
     (total, item) => total + item.quantity * item.price,
     0
   );
+
+  const handleCheckout = () => {
+    clearCart();
+    setCheckoutComplete(true);
+  };
 
   return (
     <div className="cart-Container">
@@ -53,18 +72,21 @@ const Cart = () => {
           ))}
         </div>
         <div className="totalInfo">
-          <p>Totalt pris: </p>
-          <p>{totalPrice} kr</p>
-          {/* <p>Totalt antal artiklar: {totalQuantity}</p> */}
+          <p>Totalt pris: {totalPrice} kr</p>
         </div>
         <div className="cart-btn">
-          <button className="checkout">Checkout</button>
-          <button
-            className="clear"
-            onClick={() => useCartStore.getState().clearCart()}
+          <button className="checkout" onClick={handleCheckout}>
+            Checkout
+          </button>
+          <p
+            className="clearbtn"
+            onClick={() => {
+              clearCart();
+              setCheckoutComplete(false);
+            }}
           >
             Clear
-          </button>
+          </p>
         </div>
       </div>
     </div>

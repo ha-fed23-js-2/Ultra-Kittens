@@ -22,7 +22,7 @@ const AddToCart = ({ item, id, quantity }) => {
       <button onClick={decrement} className="quantityButtonMinus">
         -
       </button>
-      <div className="quantity">{item.quantity}</div>
+      <div className="quantity">{quantity}</div>
       <button onClick={() => addToCart(item)} className="quantityButtonPlus">
         +
       </button>
