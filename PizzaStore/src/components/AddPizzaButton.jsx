@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../styles/AddPizzaOverlay.css";
 import useAdminStore from "../Data/storeAdmin";
 
-const AddPizzaButton = ({ onAddPizza, initialPizzaData,handleCancelEdit}) => {
-  const {adminView} = useAdminStore()
+const AddPizzaButton = ({ onAddPizza, initialPizzaData, handleCancelEdit }) => {
+  const { adminView } = useAdminStore();
   const [showOverlay, setShowOverlay] = useState(false);
   const [newPizzaData, setNewPizzaData] = useState({
     name: "",
@@ -40,16 +40,15 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData,handleCancelEdit}) => {
     };
     onAddPizza(newPizza);
     setShowOverlay(false);
-    resetForm()
-
+    resetForm();
   };
 
   const handleCancelclick = () => {
-    console.log('cancel butn clicked');
-    handleCancelEdit()
+    console.log("cancel butn clicked");
+    handleCancelEdit();
     setShowOverlay(false);
-    resetForm()
-  }
+    resetForm();
+  };
 
   const resetForm = () => {
     setNewPizzaData({
@@ -59,12 +58,15 @@ const AddPizzaButton = ({ onAddPizza, initialPizzaData,handleCancelEdit}) => {
       price: 0,
       imageUrl: "",
     });
-  }
+  };
 
   return (
     <div>
       {adminView && (
-      <button className="addPizza"  onClick={() => setShowOverlay(true)}> Add New Pizza </button>
+        <button className="addPizza" onClick={() => setShowOverlay(true)}>
+          {" "}
+          Add New Pizza{" "}
+        </button>
       )}
       {!adminView && <div style={{ height: "45px" }}></div>}
       {showOverlay && (

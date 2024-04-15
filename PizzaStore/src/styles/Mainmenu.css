@@ -78,7 +78,6 @@ button.addPizza:hover {
   cursor: pointer;
 }
 
-
 .trashCan {
   color: red;
 }
@@ -131,7 +130,7 @@ button.addPizza:hover {
   }
   .menuItemInfo {
     font-size: 0.5em;
-    width: 80%;
+    width: 60%;
   }
   .quantityContainer {
     width: 7em;

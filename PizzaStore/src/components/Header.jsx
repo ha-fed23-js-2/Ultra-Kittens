@@ -7,6 +7,7 @@ import { MdOutlineArrowBack } from "react-icons/md";
 import { IoLogOutOutline } from "react-icons/io5";
 import useAdminStore from "../Data/storeAdmin.js";
 import UserApi from "../Data/api.js";
+import useCartStore from "../Data/cartStore";
 
 const Header = ({ isLoggedin, setIsLoggedIn }) => {
   // State to manage the visibility of the headers
@@ -45,13 +46,29 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
     }
   }, [isLoggedin]);
 
+  const totalQuantity = useCartStore((state) =>
+    state.cartItems.reduce((total, item) => total + item.quantity, 0)
+  );
+
+  const ShoppingCart = () => (
+    <NavLink to="/cart">
+      <div className="shoppingCart">
+        <RiShoppingBasketLine className="shopping-Basket-icon" />
+        {totalQuantity > 0 ? (
+          <div className="CountCartItemShow">{totalQuantity}</div>
+        ) : (
+          <div className="CountCartItemHidden">{totalQuantity}</div>
+        )}
+      </div>
+    </NavLink>
+  );
+
   const showLoggedout = () => {
     return (
       <div className="shoppingCart">
         {!adminView && (
           <>
-            <RiShoppingBasketLine className="shopping-Basket-icon" />
-            <div className="CountCartItemShow">1</div>
+            <ShoppingCart />
           </>
         )}
         {adminView && (
@@ -60,7 +77,6 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
       </div>
     );
   };
-
   return (
     <header>
       {menuHeader ? (
@@ -72,7 +88,11 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
                 onClick={resetMenu}
               />
             </NavLink>
-            <p>Menu</p>
+            <NavLink to="/menu">
+              <div className="menuText">
+                <h2>Menu</h2>
+              </div>
+            </NavLink>
             {showLoggedout()}
           </div>
         </>
@@ -92,7 +112,7 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
                 </NavLink>
                 <h1>PizzakällarN</h1>
               </div>
-            {showLoggedout()}
+              {showLoggedout()}
             </div>
             <nav>
               <div>
