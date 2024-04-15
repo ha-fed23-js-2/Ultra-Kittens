@@ -57,4 +57,16 @@
   
   
   
+  input.error {
+    border-color: red;
+  }
+  
+  p.error-message {
+    
+    font-size: 0.7em;
+    color: red;
+    margin-bottom: 0px;
+    justify-content: center;
+    /* position: absolute; */
+  }
  
