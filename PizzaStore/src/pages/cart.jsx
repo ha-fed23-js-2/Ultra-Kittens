@@ -16,6 +16,7 @@ const Cart = () => {
         <div className="cart-empty">
           <div className="cart">
             <h1>Your order has been placed successfully!</h1>
+			<p>Payment on site</p>
           </div>
         </div>
       );
