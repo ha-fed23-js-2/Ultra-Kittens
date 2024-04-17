@@ -16,7 +16,7 @@ const Cart = () => {
         <div className="cart-empty">
           <div className="cart">
             <h1>Your order has been placed successfully!</h1>
-			<p>Payment on site</p>
+            <p>Payment on site</p>
           </div>
         </div>
       );
@@ -73,7 +73,7 @@ const Cart = () => {
           ))}
         </div>
         <div className="totalInfo">
-          <p>Totalt pris: {totalPrice} kr</p>
+          <p>Total price: {totalPrice} kr</p>
         </div>
         <div className="cart-btn">
           <button className="checkout" onClick={handleCheckout}>
