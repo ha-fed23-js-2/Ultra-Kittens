@@ -13,7 +13,7 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
   // State to manage the visibility of the headers
   const [menuHeader, setMenuHeader] = useState(false);
   const { adminView, setAdminView } = useAdminStore();
-  const [location, setLocation] = useState(window.location.pathname);
+  const [location, setLocation] = useState(window.location.hash);
 
   useEffect(() => {
     if (location === "#/menu" || location === "#/cart") {
