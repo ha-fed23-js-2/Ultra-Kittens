@@ -1,10 +1,10 @@
 import { MdOutlineEdit } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import AddToCart from "./AddToCart";
+import AddToCart from "../components/AddToCart.jsx";
 import { addPizza, deletePizza } from "../Data/data.js";
 import "../styles/Mainmenu.css";
-import AddPizzaButton from "./AddPizzaButton.jsx";
+import AddPizzaButton from "../components/AddPizzaButton.jsx";
 import { useMenuStore } from "../Data/menuStore.js";
 import useAdminStore from "../Data/storeAdmin.js";
 import useCartStore from "../Data/cartStore.js";
@@ -15,7 +15,7 @@ const Mainmenu = () => {
   const [editPizza, setEditPizza] = useState(null);
   const [showAddPizzaButton, setShowAddPizzaButton] = useState(true);
   const { adminView } = useAdminStore();
-
+  console.log("menuitm", menuItems);
   useEffect(() => {
     const fetchMenu = async () => {
       try {
@@ -116,16 +116,16 @@ const Mainmenu = () => {
                   </div>
                   <p>{pizza.info}</p>
                   <p className="ingredients">{pizza.ingredients}</p>
-                  
+
                   <div className="addToCart-editIcons">
                     {!adminView && (
-                    <AddToCart
-                      item={pizza}
-                      id={pizza.id}
-                      quantity={findQuantity(pizza.id)}
-                    />
-                  )}
-                  
+                      <AddToCart
+                        item={pizza}
+                        id={pizza.id}
+                        quantity={findQuantity(pizza.id)}
+                      />
+                    )}
+
                     {adminView && (
                       <div className="edit-icons">
                         <MdOutlineEdit
