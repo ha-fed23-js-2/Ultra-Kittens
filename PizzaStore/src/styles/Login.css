@@ -56,7 +56,6 @@
 }
 
 .login-btn-container button {
-	/* height: 2em; */
 	font-size: 1em;
 	padding: 0.2em 1em;
 	background-color: var(--mustard-color);

@@ -1,12 +1,10 @@
 .cart-empty {
   display: flex;
-  /* flex-direction: row; */
   justify-content: center;
   padding: 1em;
 }
 .cart-Container {
   display: flex;
-  /* flex-direction: row; */
   justify-content: center;
   padding: 1em;
 }
@@ -33,7 +31,6 @@
 .cart-Container .menuItemContainer {
   margin: 0.5em;
   width: 80%;
-  /* padding: ; */
 }
 .cart .cart-btn {
   display: flex;

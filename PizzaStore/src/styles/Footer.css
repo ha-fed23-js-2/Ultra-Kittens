@@ -2,7 +2,6 @@ footer {
   background-color: var(--orange-color);
   color: var(--white-color);
   padding: 10px 0;
-  /* position: absolute; */
   width: 100%;
 }
 

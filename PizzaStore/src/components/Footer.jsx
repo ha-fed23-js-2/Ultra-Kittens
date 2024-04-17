@@ -1,5 +1,5 @@
-import React, { useState } from "react"; // Importera useState från React
-import Login from "./Login"; // Importera din Login-komponent
+import React, { useState } from "react"; 
+import Login from "./Login"; 
 import "../styles/Footer.css";
 import useAdminStore from "../Data/storeAdmin";
 import { useEffect } from "react";
@@ -15,7 +15,7 @@ const Footer = ({ isLoggedin }) => {
   };
 
   const handleCancelClick = () => {
-    setShowLogin(false); // Dölj inloggningsrutan när "Cancel" klickas
+    setShowLogin(false); 
   };
 
   const handleLoginBtnClick = () => {

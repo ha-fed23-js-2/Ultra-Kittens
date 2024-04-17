@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import UserApi from "../Data/api.js";
 import "../App.css";
 
-// Router motsvarar App-komponenten
-// Består av en statisk del (visas alltid) och en dynamisk (Outlet ersätts av andra komponenter)
 const Root = () => {
   const [isLoggedin, setIsloggedin] = useState(false);
 

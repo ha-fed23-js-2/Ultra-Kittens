@@ -54,9 +54,6 @@ textarea {
     box-shadow: 0px 2px 5px var(--shadow-color) inset;
 }
 
-
-/* validation */
-
 .form .error {
 	color: var(--red-color);
     margin-top: 0.1em;
