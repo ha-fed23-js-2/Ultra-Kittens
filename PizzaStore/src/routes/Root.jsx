@@ -3,6 +3,7 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import { useEffect, useState } from "react";
 import UserApi from "../Data/api.js";
+import "../App.css";
 
 // Router motsvarar App-komponenten
 // Består av en statisk del (visas alltid) och en dynamisk (Outlet ersätts av andra komponenter)
@@ -22,15 +23,17 @@ const Root = () => {
 
   return (
     <div>
-      <Header
-        isLoggedin={isLoggedin}
-        setIsLoggedIn={(value) => {
-          setIsloggedin(value);
-        }}
-      />
-      <main>
-        <Outlet />
-      </main>
+      <div className="app">
+        <Header
+          isLoggedin={isLoggedin}
+          setIsLoggedIn={(value) => {
+            setIsloggedin(value);
+          }}
+        />
+        <main>
+          <Outlet />
+        </main>
+      </div>
       <Footer isLoggedin={isLoggedin} />
     </div>
   );

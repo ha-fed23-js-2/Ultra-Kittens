@@ -16,10 +16,10 @@ const Header = ({ isLoggedin, setIsLoggedIn }) => {
   const [location, setLocation] = useState(window.location.pathname);
 
   useEffect(() => {
-    if (location === "/menu" || location === "/cart") {
+    if (location === "#/menu" || location === "#/cart") {
       setMenuHeader(true);
     }
-  }, []);
+  }, [location]);
 
   // Toggle the menu visibility
   const toggleMenu = () => {
